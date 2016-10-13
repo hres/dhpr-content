@@ -158,13 +158,13 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <p class="col-sm-1"><strong>Contact:</strong></p>
-                            <div><p id="Contact"></p></div>
+                            <p class="col-sm-1"><strong>Contact&nbsp;:</strong></p>
+                            <div class="col-sm-11 mrgn-lft-0"><p id="Contact"></p></div>
                         </div>
                         <details class="margin-top-medium">
                             <summary class="well well-sm"><span id="Brandname2"></span></summary>
-                            <div><strong><span id="MedIngredient"></span></strong></div>
-                            <div><strong><span id="Manufacturer"></span></strong></div>
+                            <div><p><strong id="TombstoneList"></strong></p></div>
+                            <div><p><strong id="Manufacturer"></strong></p></div>                           
                             <div class="row">
                                 <p class="col-sm-4"><strong>Submission control no:</strong></p>
                                 <div class="col-sm-8"><p id="ControlNum"></p></div>
@@ -282,7 +282,7 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                 <div class="col-sm-5 col-xs-12 datemod">
                     <dl id="wb-dtmd">
                         <dt>Date modified:&#32;</dt>
-                        <dd><time property="dateModified">2016-06-23</time></dd>
+                        <dd><time property="dateModified">2016-10-11</time></dd>
                     </dl>
                 </div>
                 <div class="clear visible-xs"></div>
@@ -401,36 +401,58 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
         $("a#langLink").attr('href', goDhprLangUrlByID(lang,pType,'sommaire-motif-decision-detailOne') );
 
          $.getJSON(goDhprUrlByID(lang, pType), function (data) {
-             if ($.trim(data.LinkId) == '') {
+             if ($.trim(data.link_id) == '') {
                  OnFail("");
              }
              else {
-                 $('#Brandname').append(data.Brandname);                 
-                 $('#Brandname2').append(data.Brandname);
-                 $('#Brandname3').append(data.Brandname);
-                 $('#MedIngredient').append(formatedMedIngredientDesc(data.MedIngredient, data.Strength, data.Dosageform));
-                 $('#Manufacturer').append(data.Manufacturer);
-                 $('#MedIngredient2').append(data.MedIngredient);
-                 $('#Manufacturer2').append(data.Manufacturer);            
-                 $('#ControlNum').append(data.ControlNum);
-                 $('#DateIssued').append(formatedDate(data.DateIssued));
-                 $('#NonpropName').append(data.NonpropName);
-                 $('#Strength').append(data.Strength);
-                 $('#Dosageform').append(data.Dosageform);
-                 $('#RouteAdmin').append(data.RouteAdmin);
-                 $('#DinList').append(formatedList(data.DinList));
-                 $('#TheraClass').append(data.TheraClass);
-                 $('#NonmedIngredient').append(data.NonmedIngredient);
-                 $('#SubTypeNum').append(data.SubTypeNum);               
-                 $('#DateSubmission').append(formatedDate(data.DateSubmission));
-                 $('#DateAuthorization').append(formatedDate(data.DateAuthorization));
-                 $('#NoticeDecision').append(data.NoticeDecision);
-                 $('#QualityBasis').append(data.QualityBasis);
-                 $('#SciRegDecision').append(data.SciRegDecision);
-                 $('#BenefitRisk').append(data.BenefitRisk);
-                 $('#NonclinBasis').append(formatedClinBasisDesc(data.NonclinBasis, data.NonclinBasis2, ""));
-                 $('#ClinBasis').append(formatedClinBasisDesc(data.ClinBasis, data.ClinBasis2, data.ClinBasis3));                
-                 $('#MilestoneTable').append(displayMilestoneList(data.MilestoneList));
+                 $('#Brandname').append(data.brand_name);
+                 $('#Brandname2').append(data.brand_name);
+                 $('#Brandname3').append(data.brand_name);
+                 $('#MedIngredient').append(formatedMedIngredientDesc(data.med_ingredient, data.strength, data.dosage_form));
+                 $('#TombstoneList').append(formatedTombstoneList(data.tombstone_list));
+                 $('#Manufacturer').append(data.manufacturer);                 
+                 $('#Manufacturer2').append(data.manufacturer);
+                 $('#ControlNum').append(data.control_number);
+                 $('#DateIssued').append(formatedDate(data.date_issued));               
+                 $('#DinList').append(formatedList(data.din_list));               
+                 $('#SubTypeNum').append(data.sub_type_number);
+                 $('#DateSubmission').append(formatedDate(data.date_submission));
+                 $('#DateAuthorization').append(formatedDate(data.date_authorization));
+                 $('#NoticeDecision').append(data.notice_decision);
+                 $('#QualityBasis').append(data.quality_basis);
+                 $('#SciRegDecision').append(data.sci_reg_decision);
+                 $('#BenefitRisk').append(data.benefit_risk);
+                 $('#NonclinBasis').append(formatedClinBasisDesc(data.non_clin_basis, data.non_clin_basis2, ""));
+                 $('#ClinBasis').append(formatedClinBasisDesc(data.clin_basis, data.clin_basis2, data.clin_basis3));
+                 $('#MilestoneTable').append(displayMilestoneList(data.milestone_list));
+                 $('#Contact').append(data.contact);
+                 if( data.tombstone_list.length > 0)
+                 {
+                     var medIngredient = "";
+                     var nonpropName = "";
+                     var strength = "";
+                     var dosageform = "";
+                     var routeAdmin = "";
+                     var theraClass = "";
+                     var nonmedIngredient = "";                    
+
+                     for (i = 0; i < data.tombstone_list.length; i++) {
+                         medIngredient += data.tombstone_list[i].med_ingredient + ";";
+                         nonpropName += data.tombstone_list[i].nonprop_name + ";";
+                         strength += data.tombstone_list[i].strength + ";";
+                         dosageform += data.tombstone_list[i].dosageform + ";";
+                         routeAdmin += data.tombstone_list[i].route_admin + ";";
+                         theraClass += data.tombstone_list[i].thera_class+ ";";
+                         nonmedIngredient += data.tombstone_list[i].nonmed_ingredient + ";";
+                     }
+                     $('#MedIngredient2').append(medIngredient.slice(0, -1));
+                     $('#NonpropName').append(nonpropName.slice(0, -1));
+                     $('#Strength').append(strength.slice(0, -1));
+                     $('#Dosageform').append(dosageform.slice(0, -1));
+                     $('#RouteAdmin').append(routeAdmin.slice(0, -1));
+                     $('#TheraClass').append(theraClass.slice(0, -1));
+                     $('#NonmedIngredient').append(nonmedIngredient.slice(0, -1));
+                 }
              }
          });          
     </script>

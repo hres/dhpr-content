@@ -50,18 +50,18 @@ namespace dhpr
                         items = JsonConvert.DeserializeObject<List<rdsSearchItem>>(json);                      
                         if (items != null && items.Count > 0)
                         {
-                            items.OrderBy(c => c.DateDecision);
+                            items.OrderBy(c => c.date_decision);
 
                             foreach( var item in items)
                             {
-                                if( item.DinList != null && item.DinList.Count > 0)
+                                if( item.din_list != null && item.din_list.Count > 0)
                                 {
-                                    item.Din = string.Empty;
-                                    foreach ( var str in item.DinList)
+                                    item.din = string.Empty;
+                                    foreach ( var str in item.din_list)
                                     {
-                                        item.Din += string.Format("{0} |", str);
+                                        item.din += string.Format("{0} |", str);
                                     }
-                                    item.Din = item.Din.EndsWith("|") ? item.Din.Substring(0, item.Din.Length - 1) : item.Din;
+                                    item.din = item.din.EndsWith("|") ? item.din.Substring(0, item.din.Length - 1) : item.din;
                                 }
                             }
                             if ( string.IsNullOrWhiteSpace(term))
@@ -73,7 +73,7 @@ namespace dhpr
                                 if (ValidateDinNumber(term))
                                 {
                                     filteredList = (from t in items
-                                                  where !string.IsNullOrWhiteSpace(t.Din) && t.Din.Contains(term)
+                                                  where !string.IsNullOrWhiteSpace(t.din) && t.din.Contains(term)
                                                   select t).ToList();
                                 }
                                 else
@@ -81,15 +81,15 @@ namespace dhpr
                                     if (term.Equals("whatsnew"))
                                     {
                                         var newDate = DateTime.Now.AddDays(-30); // issue date <= 30 days.
-                                        items.OrderBy(c => c.DateDecision);
-                                        filteredList = items.Where(c => c.DateDecision > newDate).ToList();
+                                        items.OrderBy(c => c.date_decision);
+                                        filteredList = items.Where(c => c.date_decision > newDate).ToList();
                                     }
                                     else
                                     {
 
-                                        filteredList = items.Where(c => c.Drugname.ToLower().Contains(term)
-                                                                    || c.Manufacture.ToLower().Contains(term)
-                                                                    || c.MedicalIngredient.ToLower().Contains(term)
+                                        filteredList = items.Where(c => c.drug_name.ToLower().Contains(term)
+                                                                    || c.manufacturer.ToLower().Contains(term)
+                                                                    || c.medical_ingredient.ToLower().Contains(term)
                                                         ).ToList();
 
                                     }
@@ -166,7 +166,7 @@ namespace dhpr
                         {
                             if (string.IsNullOrWhiteSpace(term))
                             {
-                                items.OrderBy(c => c.CreatedDate);
+                                items.OrderBy(c => c.created_date);
                                 filteredList = items;
                             }
                             else
@@ -174,12 +174,12 @@ namespace dhpr
                                 if (term.Equals("whatsnew"))
                                 {
                                     var newDate = DateTime.Now.AddDays(-30); // issue date <= 30 days.
-                                    items.OrderBy(c => c.CreatedDate);
-                                    filteredList = items.Where(c => c.CreatedDate > newDate).ToList();
+                                    items.OrderBy(c => c.created_date);
+                                    filteredList = items.Where(c => c.created_date > newDate).ToList();
                                 }
                                 else
                                 {
-                                    filteredList = items.Where(c => c.Drugname.ToLower().Contains(term) || c.Safetyissue.ToLower().Contains(term)).ToList();
+                                    filteredList = items.Where(c => c.drug_name.ToLower().Contains(term) || c.safety_issue.ToLower().Contains(term)).ToList();
                                 }
                             }
                         }
@@ -313,17 +313,17 @@ namespace dhpr
 
                         if (items != null && items.Count > 0)
                         {
-                            items.OrderBy(c => c.DateIssued);
+                            items.OrderBy(c => c.date_issued);
                             foreach (var item in items)
                             {
-                                if (item.DinList != null && item.DinList.Count > 0)
+                                if (item.din_list != null && item.din_list.Count > 0)
                                 {
-                                    item.Din = string.Empty;
-                                    foreach (var str in item.DinList)
+                                    item.din = string.Empty;
+                                    foreach (var str in item.din_list)
                                     {
-                                        item.Din += string.Format("{0} |", str);
+                                        item.din += string.Format("{0} |", str);
                                     }
-                                    item.Din = item.Din.EndsWith("|") ? item.Din.Substring(0, item.Din.Length - 1) : item.Din;
+                                    item.din = item.din.EndsWith("|") ? item.din.Substring(0, item.din.Length - 1) : item.din;
                                 }
                             }
 
@@ -337,21 +337,21 @@ namespace dhpr
                                 if (ValidateDinNumber(term))
                                 {
                                     filteredList = (from t in items
-                                                    where !string.IsNullOrWhiteSpace(t.Din) && t.Din.Contains(term)
+                                                    where !string.IsNullOrWhiteSpace(t.din) && t.din.Contains(term)
                                                     select t).ToList();
                                 }
                                 else {
                                     if (term.Equals("whatsnew"))
                                     {
                                         var newDate = DateTime.Now.AddDays(-30); // issue date <= 30 days.
-                                        items.OrderBy(c => c.DateIssued);
-                                        filteredList = items.Where(c => c.DateIssued > newDate).ToList();
+                                        items.OrderBy(c => c.date_issued);
+                                        filteredList = items.Where(c => c.date_issued > newDate).ToList();
                                     }
                                     else
                                     {
-                                        filteredList =  items.Where(c => c.Brandname.ToLower().Contains(term) 
-                                        || c.MedIngredient.ToLower().Contains(term) || c.LicenseNo.ToLower().Contains(term)
-                                        || c.Manufacturer.ToLower().Contains(term )).ToList();
+                                        filteredList =  items.Where(c => c.brand_name.ToLower().Contains(term) 
+                                        || c.med_ingredient.ToLower().Contains(term) || c.licence_number.ToLower().Contains(term)
+                                        || c.manufacturer.ToLower().Contains(term )).ToList();
                                     }
                                 }
                             }                           

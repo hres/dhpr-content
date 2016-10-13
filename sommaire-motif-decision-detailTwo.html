@@ -148,14 +148,15 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <p class="col-sm-1"><strong>Contact:</strong></p>
-                        <div><p id="Contact"></p></div>
+                        <p class="col-sm-1"><strong>Contact&nbsp;:</strong></p>
+                        <div class="col-sm-11 mrgn-lft-0"><p id="Contact"></p></div>
                     </div>
+                    <p><strong>Ce document est une traduction française du document anglais approuvé. </strong></p>
                     <p>Les sommaires des motifs de décision (SMD) présentent des renseignements sur l'autorisation initiale d'un produit. Le <a href="#Brandname4">SMD</a> portant sur  <span id="Brandname1"></span> est accessible ci-dessous.</p>
 
                     <details class="margin-top-medium" open>
                         <summary class="well well-sm">Activité récente</summary>
-                        <p id="RecentActivity">Les SMD relatifs aux <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/sbd_qa_smd_fq-fra.php">médicaments autorisés</a> après le 1 septembre 2012 seront mis à jour afin d'inclure des renseignements sous forme de tableau des activités postautorisation (TAPA). Le TAPA comprendra de brefs résumés d'activités telles que la présentation de demandes de nouvelles utilisations, ainsi que la décision de Santé Canada (positive ou négative). Les TAPA seront mis à jour régulièrement en ce qui a trait aux activités postautorisation tout au long du cycle de vie du produit.</p>
+                        <p id="RecentActivity">Les SMD relatifs aux <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/sbd_qa_smd_fq-fra.php">médicaments autorisés</a> après le 1 septembre 2012 seront mis à jour afin d'inclure des renseignements sous forme de tableau des activités postautorisation (TAPA). Le TAPA comprendra de brefs résumés d'activités telles que la présentation de demandes de nouvelles utilisations, ainsi que la décision de Santé Canada (positive ou négative). Les TAPA seront mis à jour régulièrement en ce qui a trait aux activités postautorisation tout au long du cycle de vie du produit.  <span id="paatMessage"></span></p>
                     </details>
                    
                         <details class="margin-top-medium" id="paatDiv">
@@ -193,8 +194,7 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                                 <div class="col-sm-8"><p id="DateIssued2"></p></div>
                             </div>
                             <p>L'information suivante concerne l'autorisation initiale de la présentation de drogue nouvelle pour <span id="Brandname3"></span>.</p>
-                            <div><strong><span id="MedIngredient2"></span></strong></div>
-                            <div><strong><span id="Strength"></span></strong></div>
+                            <div><p><strong id="TombstoneList"></strong></p></div>
                             <div class="row">
                                 <p class="col-sm-4"><strong>Identification(s) numérique(s) de drogue(s):</strong></p>
                                 <div class="col-sm-8"><p id="DinList"></p></div>
@@ -206,15 +206,16 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <div><p id="Summary"></p></div>
                         </details>
                         <details class="margin-top-medium">
-                            <summary class="well well-sm">1 Sur quoi l'autorisation porte-t-elle?</summary>
+                            <summary class="well well-sm" id="WhatApprovedTitle">1 Sur quoi l'autorisation porte-t-elle?</summary>
                             <p id="WhatApproved"></p>
                         </details>
                         <details class="margin-top-medium">
-                            <summary class="well well-sm">2 . Pourquoi <span id="Brandname5"></span> a-t-il été autorisé?</summary>
+                            <summary class="well well-sm" id="WhyApprovedTitle">2 Pourquoi <span id="Brandname5"></span> a-t-il été autorisé?</summary>
                             <p id="WhyApproved"></p>
                         </details>
                         <details class="margin-top-medium">
-                            <summary class="well well-sm">3 Quelles sont les étapes qui ont mené à l'autorisation?</summary>
+                            <summary class="well well-sm" id="StepsApprovalTitle">3 Quelles sont les étapes qui ont mené à l'autorisation?</summary>
+                            <div id="StepsApproval"></div>
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="active">
@@ -227,30 +228,30 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <p id="AssessBasis"></p>
                         </details>
                         <details class="margin-top-medium">
-                            <summary class="well well-sm">4 Quelles mesures de suivi le promoteur prendra-t-il?</summary>
+                            <summary class="well well-sm" id="FollowupMeasuresTitle">4 Quelles mesures de suivi le promoteur prendra-t-il?</summary>
                             <p id="FollowupMeasures"></p>
                         </details>
                         <details class="margin-top-medium">
-                            <summary class="well well-sm">5 Quelles activités postautorisation ont été menées à l'égard?</summary>
+                            <summary class="well well-sm" id="PostAuthTitle">5 Quelles activités postautorisation ont été menées à l'égard de <span id="Brandname6"></span>?</summary>
                             <p id="PostAuth"></p>
                         </details>
                         <details class="margin-top-medium">
-                            <summary class="well well-sm">6 Quels sont les autres renseignements disponibles à propos des drogues?</summary>
+                            <summary class="well well-sm" id="OtherInfoTitle">6 Quels sont les autres renseignements disponibles à propos des drogues?</summary>
                             <p id="OtherInfo"></p>
                         </details>
                         <details class="margin-top-medium">
                             <summary class="well well-sm">7 Quelle est la justification scientifique sur laquelle s'est fondé Santé Canada?</summary>
                             <div>
                                 <details class="margin-top-medium">
-                                    <summary class="well well-sm">7.1 Motifs cliniques de la décision</summary>
+                                    <summary class="well well-sm" id="AClinBasisTitle">7.1 Motifs cliniques de la décision</summary>
                                     <p id="AClinBasis"></p>
                                 </details>
                                 <details class="margin-top-medium">
-                                    <summary class="well well-sm">7.2 Motifs non cliniques de la décision</summary>
+                                    <summary class="well well-sm" id="ANonClinBasisTitle">7.2 Motifs non cliniques de la décision</summary>
                                     <p id="ANonClinBasis"></p>
                                 </details>
                                 <details class="margin-top-medium">
-                                    <summary class="well well-sm">7.3 Motifs d'ordre qualitatif</summary>
+                                    <summary class="well well-sm" id="BQualityBasisTitle">7.3 Motifs d'ordre qualitatif</summary>
                                     <p id="BQualityBasis"></p>
                                 </details>
                             </div>
@@ -261,7 +262,7 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                 <div class="col-sm-5 col-xs-12 datemod">
                     <dl id="wb-dtmd">
                         <dt>Date de modification :</dt>
-                        <dd><time property="dateModified">2016-08-03</time></dd>
+                        <dd><time property="dateModified">2016-10-11</time></dd>
                     </dl>
                 </div>
                 <div class="clear visible-xs"></div>
@@ -384,64 +385,66 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                 "error": OnFail                   
             },
             "initComplete": function (settings, json) {
-                if ($.trim(json.LinkId) == '') {
+                if ($.trim(json.link_id) == '') {
                     OnFail("");
                 }
                 else {
-                    $('#Brandname').append(json.Brandname);
-                    $('#Brandname1').append(json.Brandname);
-                    $('#Brandname2').append(json.Brandname);
-                    $('#Brandname3').append(json.Brandname);
-                    $('#Brandname4').append(json.Brandname);
-                    $('#Brandname5').append(json.Brandname);
-                    $('#MedIngredient').append(json.MedIngredient);
-                    $('#MedIngredient2').append(json.MedIngredient);
-                    $('#Manufacturer').append(json.Manufacturer);
-                    $('#Manufacturer2').append(json.Manufacturer);
-                    $('#ControlNum').append(json.ControlNum);
-                    $('#DateIssued').append(formatedDate(json.DateIssued));
-                    $('#DateIssued2').append(formatedDate(json.DateIssued));
-                    $('#SubTypeNum').append(json.SubTypeNum);
-                    $('#Summary').append(json.Summary);
-                    $('#WhyApproved').append(json.WhyApproved);
-                    $('#WhatApproved').append(json.WhatApproved);
-                    $('#FollowupMeasures').append(json.FollowupMeasures);
-                    $('#StepsApproval').append(json.StepsApproval);
-                    $('#PostAuth').append(json.PostAuth);
-                    $('#OtherInfo').append(json.OtherInfo);
-                    $('#BQualityBasis').append(json.BQualityBasis);
-                    $('#ANonClinBasis').append(formatedClinBasisDesc(json.ANonClinBasis, json.ANonClinBasis2, ""));
-                    $('#AClinBasis').append(formatedClinBasisDesc(json.AClinBasis, json.AClinBasis2, ""));
-                    $('#MilestoneTable').append(displayMilestoneList(json.MilestoneList));
-                    $('#DinList').append(formatedList(json.DinList));
-                    $('#DinList2').append(formatedDinWithOthers(json.DinList, json.MedIngredient, json.RouteAdmin));
-                    $('#Strength').append(formatedMedIngredientDesc(json.Strength, json.Dosageform, json.RouteAdmin));
-                    $('#AssessBasis').append(json.AssessBasis);
-                    $('#Contact').append(json.Contact);
+                    $('#paatMessage').append(json.paat_message);
+                    $('#Contact').append(json.contact);
+                    $('#Brandname').append(json.brand_name);
+                    $('#Brandname1').append(json.brand_name);
+                    $('#Brandname2').append(json.brand_name);
+                    $('#Brandname3').append(json.brand_name);
+                    $('#Brandname4').append(json.brand_name);
+                    $('#Brandname5').append(json.brand_name);
+                    $('#Brandname6').append(json.brand_name);
+                    $('#Manufacturer').append(json.manufacturer);
+                    $('#Manufacturer2').append(json.manufacturer);
+                    $('#ControlNum').append(json.control_number);
+                    $('#DateIssued').append(formatedDate(json.date_issued));
+                    $('#DateIssued2').append(formatedDate(json.date_issued));
+                    $('#SubTypeNum').append(json.sub_type_number);
+                    $('#Summary').append(json.summary);
+                    $('#WhyApproved').append(json.why_approved);
+                    $('#WhatApproved').append(json.what_approved);
+                    $('#FollowupMeasures').append(json.followup_measures);
+                    $('#StepsApproval').append(json.steps_approval);
+                    $('#PostAuth').append(json.post_auth);
+                    $('#OtherInfo').append(json.other_info);
+                    $('#BQualityBasis').append(json.b_quality_basis);
+                    $('#ANonClinBasis').append(formatedClinBasisDesc(json.a_non_clin_basis, json.a_non_clin_basis2, ""));
+                    $('#AClinBasis').append(formatedClinBasisDesc(json.a_clin_basis, json.a_clin_basis2, ""));
+                    $('#MilestoneTable').append(displayMilestoneList(json.milestone_list));
+                    $('#DinList').append(formatedList(json.din_list));
+                    //$('#DinList2').append(formatedDinWithOthers(json.din_list, json.MedIngredient, json.RouteAdmin));
+                    $('#TombstoneList').append(formatedTombstoneList(json.tombstone_list));
+                    $('#AssessBasis').append(json.assess_basis);
+                    $('#MedIngredient').append(json.med_ingredient);
+                    $('#MedIngredient2').append(json.med_ingredient);
                 }
             },
             "columns": [
-                            {
-                                "data": "RowNum",
-                                "sType": "number",
-                                "visible": false,
-                                "searchable": false
-                            },
-                            { "data": "ActContrNum" },
-                            {
-                                "data": null,
-                                "render": function (data, type, full) {
-                                    return formatedDate(data.DateSubmit) + '<br />' + data.SubmitText;
-                                }
-                            },
-                            {
-                                "data": null,
-                                "render": function (data, type, full) {
-                                    return data.PaatDecision + '<br />' + formatedDate(data.DecisionStartDate) + '<br />' + data.DateText  + '<br />' + formatedDate(data.DecisionEndDate);
-                                }
-                            },
-                            { "data": "SummActivity" }
-                       ]
+                             {
+                                 "data": "row_num",
+                                 "sType": "number",
+                                 "visible": false,
+                                 "searchable": false
+                             },
+                             { "data": "act_contr_num" },
+                             {
+                                 "data": null,
+                                 "render": function (data, type, full) {
+                                     return formatedDate(data.date_submit) + '<br />' + data.submit_text;
+                                 }
+                             },
+                             {
+                                 "data": null,
+                                 "render": function (data, type, full) {
+                                     return data.paat_decision + '<br />' + formatedDate(data.decision_start_date) + '<br />' + data.date_text + '<br />' + formatedDate(data.decision_end_date);
+                                 }
+                             },
+                             { "data": "summ_activity" }
+                    ]
         }
         $(".wb-tables").on("xhr.dt", function (e, settings, json, xhr) {
             var count = Object.keys(json.data).length;

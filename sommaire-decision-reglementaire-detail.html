@@ -145,7 +145,7 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
             <section>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2 id="title" class="panel-title">Sommaire de décision réglementaire: <span id="Drugname"></span></h2>
+                        <h2 id="title" class="panel-title">Sommaire de décision réglementaire&nbsp;:&nbsp;<span id="Drugname"></span></h2>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -211,7 +211,7 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                 <div class="col-sm-5 col-xs-12 datemod">
                     <dl id="wb-dtmd">
                         <dt>Date de modification :</dt>
-                        <dd><time property="dateModified">2016-07-29</time></dd>
+                        <dd><time property="dateModified">2016-10-11</time></dd>
                     </dl>
                 </div>
                 <div class="clear visible-xs"></div>
@@ -329,25 +329,25 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
         var pType = "rds";
         $("a#langLink").attr('href', goDhprLangUrlByID(lang, pType, 'regulatory-decision-summary-detail'));
         $.getJSON(goDhprUrlByID(lang, pType), function (data) {
-            if ($.trim(data.LinkId) == '') {
+            if ($.trim(data.link_id) == '') {
                 OnFail("");
             }
             else {
-                $('#Drugname').append(data.Drugname);
-                $('#MedicalIngredient').append(data.MedicalIngredient);
-                $('#TherapeuticArea').append(data.TherapeuticArea);
-                $('#TypeSubmission').append(data.TypeSubmission);
-                $('#ControlNumber').append(data.ControlNumber);
-                $('#Purpose').append(data.Purpose);
-                $('#ReasonDecision').append(data.ReasonDecision);
-                $('#Decision').append(data.Decision);
-                $('#DateDecision').append(formatedDate(data.DateDecision));
-                $('#Manufacture').append(data.Manufacture);
-                $('#DateFiled').append(formatedDate(data.DateFiled));
-                $('#Contact').append(formatedContact(data.ContactName, data.ContactUrl));
-                $('#Din').append(formatedList(data.DinList));
-                $('#PrescriptionStatus').append(data.PrescriptionStatus);
-                $('#Footnotes').append(formatedBulletList(data.BulletList,2));
+                $('#Drugname').append(data.drug_name);
+                $('#MedicalIngredient').append(data.medical_ingredient);
+                $('#TherapeuticArea').append(data.therapeutic_area);
+                $('#TypeSubmission').append(data.type_submission);
+                $('#ControlNumber').append(data.control_number);
+                $('#Purpose').append(data.purpose);
+                $('#ReasonDecision').append(data.reason_decision);
+                $('#Decision').append(data.decision);
+                $('#DateDecision').append(formatedDate(data.date_decision));
+                $('#Manufacture').append(data.manufacturer);
+                $('#DateFiled').append(formatedDate(data.date_filed));
+                $('#Contact').append(formatedContact(data.contact_name, data.contact_url));
+                $('#Din').append(formatedList(data.din_list));
+                $('#PrescriptionStatus').append(data.prescription_status);
+                $('#Footnotes').append(formatedBulletList(data.bullet_list, 2));
             }
        });
     </script>

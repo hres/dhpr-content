@@ -220,7 +220,7 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                 <div class="col-sm-5 col-xs-12 datemod">
                     <dl id="wb-dtmd">
                         <dt>Date de modification :</dt>
-                        <dd><time property="dateModified">2016-08-03</time></dd>
+                        <dd><time property="dateModified">2016-10-07</time></dd>
                     </dl>
                 </div>
                 <div class="clear visible-xs"></div>
@@ -350,28 +350,28 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
         $('#additionalDiv').hide();
         $("a#langLink").attr('href', goDhprLangUrlByID(lang, pType, 'summary-safety-review-detail'));
         $.getJSON(goDhprUrlByID(lang, pType), function (data) {
-            if ($.trim(data.LinkId) == '') {
+            if ($.trim(data.link_id) == '') {
                 OnFail("");
             }
             else {
-                $('#drugName').append(data.DrugName);
-                $('#safetyIssue').append(data.Safetyissue);
-                $('#createdDate').append(formatedDate(data.CreatedDate));
-                $('#conclusion').append(formatedBulletList(data.ConclusionList, 0));
-                $('#references').append(formatedBulletList(data.ReferenceList, 1));
-                $('#footnotes').append(formatedBulletList(data.FootnotesList, 2));
-                if( data.Template == 1)
+                $('#drugName').append(data.drug_name);
+                $('#safetyIssue').append(data.safety_issue);
+                $('#createdDate').append(formatedDate(data.created_date));
+                $('#conclusion').append(formatedBulletList(data.conclusion_list, 0));
+                $('#references').append(formatedBulletList(data.reference_list, 1));
+                $('#footnotes').append(formatedBulletList(data.footnotes_list, 2));
+                if( data.template == 1)
                 {
                     $('#issueDiv').show();
                     $('#backgroundDiv').show();
                     $('#objectiveDiv').show();
                     $('#keyFindingsDiv').show();
                     $('#fullReviewDiv').show();
-                    $('#issue').append(data.Issue);
-                    $('#background').append(data.Background);
-                    $('#objective').append(data.Objective);
-                    $('#keyFindings').append(data.KeyFindings);
-                    $('#fullReview').append(data.FullReview);
+                    $('#issue').append(data.issue);
+                    $('#background').append(data.background);
+                    $('#objective').append(data.objective);
+                    $('#keyFindings').append(data.key_findings);
+                    $('#fullReview').append(data.full_review);
                 }
                 else
                 {
@@ -382,14 +382,13 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                     $('#useCanadaDiv').show();
                     $('#findingsDiv').show();
                     $('#additionalDiv').show();
-                    $('#drugName2').append(data.DrugName);
-                    $('#safetyIssue2').append(data.Safetyissue);
-                    $('#keyMessages').append(formatedBulletList(data.KeyMessageList,0));
-                    $('#overview').append(data.Overview);
-                    $('#useCanada').append(formatedBulletList(data.UseCanadaList,0));
-                    $('#findings').append(formatedBulletList(data.FindingList,0));
-                    $('#additional').append(data.Additional);
-
+                    $('#drugName2').append(data.drug_name);
+                    $('#safetyIssue2').append(data.safety_issue);
+                    $('#keyMessages').append(formatedBulletList(data.key_message_list,0));
+                    $('#overview').append(data.overview);
+                    $('#useCanada').append(formatedBulletList(data.use_canada_list,0));
+                    $('#findings').append(formatedBulletList(data.finding_list,0));
+                    $('#additional').append(data.additional);
                 }
             }
        });

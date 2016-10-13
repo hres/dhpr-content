@@ -18,7 +18,7 @@
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="" />
     <meta name="dcterms.issued" title="W3CDTF" content="2016-07-29" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2016-07-29" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2016-10-11" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
     <!-- Meta data-->
@@ -175,7 +175,7 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                 <div class="col-sm-5 col-xs-12 datemod">
                     <dl id="wb-dtmd">
                         <dt>Date de modification :</dt>
-                        <dd><time property="dateModified">2016-08-04</time></dd>
+                        <dd><time property="dateModified">2016-10-11</time></dd>
                     </dl>
                 </div>
                 <div class="clear visible-xs"></div>
@@ -311,36 +311,36 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                                     "data": null,
                                     "render": function (data, type, full) {
 
-                                        if (data.isMd)
+                                        if (data.is_md)
                                         {
-                                            if (data.Template == 1) {
-                                                return '<a href=sommaire-motif-decision-instruments-médicaux-detailOne.html?lang=fr&linkID=' + data.LinkId + '>' + data.Brandname + '</a>';
+                                            if (data.template == 1) {
+                                                return '<a href=sommaire-motif-decision-instruments-médicaux-detailOne.html?lang=fr&linkID=' + data.link_id + '>' + data.brand_name + '</a>';
                                             }
-                                            else if (data.Template == 2)
+                                            else if (data.template == 2)
                                             {
-                                                return '<a href=sommaire-motif-decision-instruments-médicaux-detailTwo.html?lang=fr&linkID=' + data.LinkId + '>' + data.Brandname + '</a>';
+                                                return '<a href=sommaire-motif-decision-instruments-médicaux-detailTwo.html?lang=fr&linkID=' + data.link_id + '>' + data.brand_name + '</a>';
                                             }
                                             else
                                             {
-                                                return '<a href=sommaire-motif-decision-instruments-médicaux-detailThree.html?lang=fr&linkID=' + data.LinkId + '>' + data.Brandname + '</a>';
+                                                return '<a href=sommaire-motif-decision-instruments-médicaux-detailThree.html?lang=fr&linkID=' + data.link_id + '>' + data.brand_name + '</a>';
                                             }
                                         }
                                         else
                                         {
-                                            if (data.Template == 1) {
-                                                return '<a href=sommaire-motif-decision-detailOne.html?lang=fr&linkID=' + data.LinkId + '>' + data.Brandname + '</a>';
+                                            if (data.template == 1) {
+                                                return '<a href=sommaire-motif-decision-detailOne.html?lang=fr&linkID=' + data.link_id + '>' + data.brand_name + '</a>';
                                             }
                                             else
                                             {
-                                                return '<a href=sommaire-motif-decision-detailTwo.html?lang=fr&linkID=' + data.LinkId + '>' + data.Brandname + '</a>';
+                                                return '<a href=sommaire-motif-decision-detailTwo.html?lang=fr&linkID=' + data.link_id + '>' + data.brand_name + '</a>';
                                             }
                                         }
                                     }
                                 },
-                                { "data": "MedIngredient" },
-                                { "data": "Manufacturer" },
+                                { "data": "med_ingredient" },
+                                { "data": "manufacturer" },
                                 {
-                                    "data": "DateIssued",
+                                    "data": "date_issued",
                                     "render": function (data, type, full, meta) {
                                         return formatedDate(data);
                                     }
@@ -371,13 +371,13 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                     var arrData = typeof json != 'object' ? JSON.parse(json.data) : json.data;
                     for (var j = 0; j < arrData.length; j++) {
                         for (var key in arrData[j]) {
-                            if (key == 'DateIssued') {
+                            if (key == 'date_issued') {
                                 arrData[j][key] = formatedDate(arrData[j][key]);
                             }
-                            if (key == 'Din') {
+                            if (key == 'din') {
                                 delete arrData[j][key];
                             }
-                            if (key == 'Template') {
+                            if (key == 'template') {
                                 delete arrData[j][key];
                             }
                         }

@@ -158,7 +158,7 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <p class="col-sm-4"><strong>Medicinal ingredient</strong></p>
+                            <p class="col-sm-4"><strong>Medicinal ingredient(s)</strong></p>
                             <div class="col-sm-8"><p id="MedicalIngredient"></p></div>
                         </div>
                         <div class="row">
@@ -339,25 +339,25 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
         $("a#langLink").attr('href', goDhprLangUrlByID(lang, pType, 'sommaire-decision-reglementaire-detail'));
 
         $.getJSON(goDhprUrlByID(lang, pType), function (data) {
-            if ($.trim(data.LinkId) == '') {
+            if ($.trim(data.link_id) == '') {
                 OnFail("");
             }
             else {
-                $('#Drugname').append(data.Drugname);
-                $('#MedicalIngredient').append(data.MedicalIngredient);
-                $('#TherapeuticArea').append(data.TherapeuticArea);
-                $('#TypeSubmission').append(data.TypeSubmission);
-                $('#ControlNumber').append(data.ControlNumber);
-                $('#Purpose').append(data.Purpose);
-                $('#ReasonDecision').append(data.ReasonDecision);
-                $('#Decision').append(data.Decision);
-                $('#DateDecision').append(formatedDate(data.DateDecision));
-                $('#Manufacture').append(data.Manufacture);  
-                $('#DateFiled').append(formatedDate(data.DateFiled)); 
-                $('#Contact').append(formatedContact(data.ContactName, data.ContactUrl));
-                $('#Din').append(formatedList(data.DinList));
-                $('#PrescriptionStatus').append(data.PrescriptionStatus);
-                $('#Footnotes').append(formatedBulletList(data.BulletList,2));
+                $('#Drugname').append(data.drug_name);
+                $('#MedicalIngredient').append(data.medical_ingredient);
+                $('#TherapeuticArea').append(data.therapeutic_area);
+                $('#TypeSubmission').append(data.type_submission);
+                $('#ControlNumber').append(data.control_number);
+                $('#Purpose').append(data.purpose);
+                $('#ReasonDecision').append(data.reason_decision);
+                $('#Decision').append(data.decision);
+                $('#DateDecision').append(formatedDate(data.date_decision));
+                $('#Manufacture').append(data.manufacturer);  
+                $('#DateFiled').append(formatedDate(data.date_filed)); 
+                $('#Contact').append(formatedContact(data.contact_name, data.contact_url));
+                $('#Din').append(formatedList(data.din_list));
+                $('#PrescriptionStatus').append(data.prescription_status);
+                $('#Footnotes').append(formatedBulletList(data.bullet_list, 2));
             }
        });
     </script>

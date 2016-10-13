@@ -183,7 +183,7 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                 <div class="col-sm-5 col-xs-12 datemod">
                     <dl id="wb-dtmd">
                         <dt>Date modified:&#32;</dt>
-                        <dd><time property="dateModified">2016-07-08</time></dd>
+                        <dd><time property="dateModified">2016-10-07</time></dd>
                     </dl>
                 </div>
                 <div class="clear visible-xs"></div>
@@ -324,12 +324,12 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                                 {
                                     "data": null,
                                     "render": function (data, type, full) {
-                                        return '<a href=summary-safety-review-detail.html?lang=en&linkID=' + data.LinkId + '>' + data.Drugname + '</a>';
+                                        return '<a href=summary-safety-review-detail.html?lang=en&linkID=' + data.link_id + '>' + data.drug_name + '</a>';
                                     }
                                 },
-                                { "data": "Safetyissue" },                                
+                                { "data": "safety_issue" },                                
                                 {
-                                    "data": "CreatedDate",
+                                    "data": "created_date",
                                     "render": function (data, type, full, meta) {
                                         return formatedDate(data);
                                     }
@@ -359,11 +359,11 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                     var arrData = typeof json != 'object' ? JSON.parse(json.data) : json.data;
                     for (var j = 0; j < arrData.length; j++) {
                          for (var key in arrData[j]) {
-                             if (key == 'CreatedDate')
+                             if (key == 'created_date')
                              {
                                  arrData[j][key] = formatedDate(arrData[j][key]);                                
                              }
-                             if (key == 'Template') {
+                             if (key == 'template') {
                                  delete arrData[j][key];
                              }
                         }

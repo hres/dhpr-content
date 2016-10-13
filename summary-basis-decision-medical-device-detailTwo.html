@@ -401,32 +401,32 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
 
 
         $.getJSON(goDhprUrlByID(lang, pType), function (data) {
-            if ($.trim(data.LinkId) == '') {
+            if ($.trim(data.link_id) == '') {
                 OnFail("");
             }
             else {
-                $('#DeviceName').append(data.DeviceName);
-                $('#DeviceName1').append(data.DeviceName);
-                $('#DeviceName2').append(data.DeviceName);
-                $('#ApplicationNumber').append(data.ApplicationNum);
-                $('#LicenceNum').append(data.LicenseNo);
-                $('#DateSBDIssed').append(formatedDate(data.DateSbdIssued));
-                $('#Egalement').append(data.Egalement);
-                $('#Manufacturer').append(data.Manufacturer);
-                $('#Manufacturer1').append(data.Manufacturer);
-                $('#MedicalDeviceGroup').append(data.MedicalDeviceGroup);
-                $('#BiologicalMaterial').append(data.BiologicalMaterial);
-                $('#CombinationProduct').append(data.CombinationProduct);
-                $('#DrugMaterial').append(data.DrugMaterial);
-                $('#ApplicationTypeNum').append(data.ApplicationTypeAndNum);
-                $('#DateLicenceIssued').append(formatedDate(data.DateLicenceIssued));
-                $('#LicenceNo').append(data.LicenseNo);
-                $('#IntendedUse').append(data.IntendedUse);
-                $('#NoticeDecision').append(data.NoticeOfDecision);
-                $('#SciRegBasisDecision1').append(data.SciRegBasisDecision1);
-                $('#SciRegBasisDecision2').append(data.SciRegBasisDecision2);
-                $('#SciRegBasisDecision3').append(data.SciRegBasisDecision3);
-                $('#MilestoneTable').append(displayAppMilestoneList(data.AppMilestoneList));
+                $('#DeviceName').append(data.device_name);
+                $('#DeviceName1').append(data.device_name);
+                $('#DeviceName2').append(data.device_name);
+                $('#ApplicationNumber').append(data.application_num);
+                $('#LicenceNum').append(data.licence_number);
+                $('#DateSBDIssed').append(formatedDate(data.date_sbd_issued));
+                $('#Egalement').append(data.egalement);
+                $('#Manufacturer').append(data.manufacturer);
+                $('#Manufacturer1').append(data.manufacturer);
+                $('#MedicalDeviceGroup').append(data.medical_device_group);
+                $('#BiologicalMaterial').append(data.biological_material);
+                $('#CombinationProduct').append(data.combination_product);
+                $('#DrugMaterial').append(data.drug_material);
+                $('#ApplicationTypeNum').append(data.application_type_and_num);
+                $('#DateLicenceIssued').append(formatedDate(data.date_licence_issued));
+                $('#LicenceNo').append(data.licence_number);
+                $('#IntendedUse').append(data.intended_use);
+                $('#NoticeDecision').append(data.notice_of_decision);
+                $('#SciRegBasisDecision1').append(data.sci_reg_basis_decision1);
+                $('#SciRegBasisDecision2').append(data.sci_reg_basis_decision2);
+                $('#SciRegBasisDecision3').append(data.sci_reg_basis_decision3);
+                $('#MilestoneTable').append(displayAppMilestoneList(data.app_milestone_list));
             }
         });
         

@@ -120,6 +120,9 @@
   <data name="No" xml:space="preserve">
     <value>Non</value>
   </data>
+  <data name="NoPaatData" xml:space="preserve">
+    <value>À l’heure actuelle, aucun TAPA n’est disponible pour {0}. Lorsqu’un TAPA sera disponible pour {0}, il sera incorporé dans ce SMD.</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Oui</value>
   </data>

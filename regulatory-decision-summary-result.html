@@ -322,20 +322,20 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                                 {
                                     "data": null,
                                     "render": function (data, type, full) {
-                                        return '<a href=regulatory-decision-summary-detail.html?lang=en&linkID=' + data.LinkId + '>' + data.Drugname + '</a>';
+                                        return '<a href=regulatory-decision-summary-detail.html?lang=en&linkID=' + data.link_id + '>' + data.drug_name + '</a>';
                                     }
                                 },
-                                { "data": "MedicalIngredient" },
-                                { "data": "Manufacture" },
-                                { "data": "Decision" },
+                                { "data": "medical_ingredient" },
+                                { "data": "manufacturer" },
+                                { "data": "decision" },
                                 {
-                                    "data": "DateDecision",
+                                    "data": "date_decision",
                                     "render": function (data, type, full, meta) {
                                         return formatedDate(data);
                                     }
                                 },
-                                { "data": "ControlNumber" },
-                                { "data": "TypeSubmission" }                                   
+                                { "data": "control_number" },
+                                { "data": "type_submission" }                                   
                 ]
             }
 
@@ -360,7 +360,7 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                     var arrData = typeof json != 'object' ? JSON.parse(json.data) : json.data;
                     for (var j = 0; j < arrData.length; j++) {
                         for (var key in arrData[j]) {
-                            if (key == 'DateDecision') {
+                            if (key == 'date_decision') {
                                 arrData[j][key] = formatedDate(arrData[j][key]);
                             }                          
                         }

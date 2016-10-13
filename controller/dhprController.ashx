@@ -42,65 +42,76 @@ namespace dhpr
                         case programType.rds:
                             var rdsItem = new regulatoryDecisionItem();
                             rdsItem = UtilityHelper.GetRdsByID(linkId, lang);
-                            if( !string.IsNullOrWhiteSpace(rdsItem.LinkId))
+                            if( !string.IsNullOrWhiteSpace(rdsItem.link_id))
                             {
-                                rdsItem.Decision = string.Format("{0}{1}", rdsItem.Decision, rdsItem.DecisionDescr);
+                                rdsItem.decision = string.Format("{0}{1}", rdsItem.decision, rdsItem.decision_descr);
                                 jsonResult = JsonHelper.JsonSerializer<regulatoryDecisionItem>(rdsItem);
                                 context.Response.Write(jsonResult);
                             }
                             else
                             {
-                                context.Response.Write("{\"LinkId\":\"\"}");
+                                context.Response.Write("{\"link_id\":\"\"}");
                             }
                             break;
                         case programType.ssr:
                             var ssrItem = new summarySafetyItem();
                             ssrItem = UtilityHelper.GetSsrByID(linkId, lang);
 
-                            if ( !string.IsNullOrWhiteSpace(ssrItem.LinkId))
+                            if ( !string.IsNullOrWhiteSpace(ssrItem.link_id))
                             {
                                 jsonResult = JsonHelper.JsonSerializer<summarySafetyItem>(ssrItem);
                                 context.Response.Write(jsonResult);
                             }
                             else
                             {
-                                context.Response.Write("{\"LinkId\":\"\"}");
+                                context.Response.Write("{\"link_id\":\"\"}");
                             }
                             break;
                         case programType.sbd:
                             var sbdItem = new summaryBasisItem();
                             sbdItem = UtilityHelper.GetSbdByID(linkId, lang);
 
-                            if ( !string.IsNullOrWhiteSpace(sbdItem.LinkId))
+                            if ( !string.IsNullOrWhiteSpace(sbdItem.link_id))
                             {
-                                if(sbdItem.PostActivityList.Count > 0)
+                                if(sbdItem.post_activity_list.Count > 0)
                                 {
-                                    sbdItem.PostActivityList.OrderBy(i => i.RowNum);
+                                    sbdItem.post_activity_list.OrderBy(i => i.row_num);
                                 }
+                                else
+                                {
+                                    sbdItem.paat_message = string.Empty;
+                                    if ( sbdItem.date_issued > new DateTime(2012, 12, 31))
+                                    {
+                                        sbdItem.paat_message =  string.Format(Resources.Resource.NoPaatData, sbdItem.brand_name);
+                                    }
+                                }
+                                //<a href=\"\"></a>
+                                //if(!string.IsNullOrWhiteSpace(sbdItem.Contact) )
+                                //{
+                                //    sbdItem.Contact = sbdItem.Contact.Replace("</a>", "No value</a>");
+                                //}
                                 jsonResult = JsonHelper.JsonSerializer<summaryBasisItem>(sbdItem);
-                                jsonResult = jsonResult.Replace("PostActivityList", "data");
+                                jsonResult = jsonResult.Replace("post_activity_list", "data");
                                 context.Response.Write(jsonResult);
                             }
                             else
                             {
-                                context.Response.Write("{\"LinkId\":\"\"}");
+                                context.Response.Write("{\"link_id\":\"\"}");
                             }
                             break;
-
-
                         case programType.sbdmd:
                             var sbdMdItem = new summaryBasisMDItem();
                             sbdMdItem = UtilityHelper.GetSbdMdByID(linkId, lang);
 
-                            if ( !string.IsNullOrWhiteSpace(sbdMdItem.LinkId))
+                            if ( !string.IsNullOrWhiteSpace(sbdMdItem.link_id))
                             {
                                 jsonResult = JsonHelper.JsonSerializer<summaryBasisMDItem>(sbdMdItem);
-                                jsonResult = jsonResult.Replace("PlatList", "data");
+                                jsonResult = jsonResult.Replace("plat_list", "data");
                                 context.Response.Write(jsonResult);
                             }
                             else
                             {
-                                context.Response.Write("{\"LinkId\":\"\"}");
+                                context.Response.Write("{\"link_id\":\"\"}");
                             }
                             break;
 
@@ -117,7 +128,7 @@ namespace dhpr
                             {
                                 rdsList.ForEach(x =>
                                 {
-                                    x.DinList = new List<string>();
+                                    x.din_list = new List<string>();
 
                                 });
                                 jsonResult = JsonHelper.JsonSerializer<List<rdsSearchItem>>(rdsList);

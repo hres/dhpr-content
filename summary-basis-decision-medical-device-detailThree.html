@@ -369,51 +369,50 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                 "error": OnFail               
             },
             "initComplete": function (settings, json) {             
-                if ($.trim(json.LinkId) == '') {
+                if ($.trim(json.link_id) == '') {
                     OnFail("");
                 }               
                 else {
-                    $('#DeviceName').append(json.DeviceName);
-                    $('#DeviceName1').append(json.DeviceName);
-                    $('#DeviceName2').append(json.DeviceName);
-                    $('#DeviceName3').append(json.DeviceName);
-                    $('#DeviceName4').append(json.DeviceName);
-                    $('#DeviceName5').append(json.DeviceName);
-                    $('#DeviceName6').append(json.DeviceName);
-                    $('#DeviceName7').append(json.DeviceName);
-                    $('#DeviceName8').append(json.DeviceName);
-                    $('#DeviceName9').append(json.DeviceName);
-                    $('#RecentActivity').append(json.RecentActivity);
-                    $('#UpdatedDate').append(formatedDate(json.UpdatedDate));
-                    $('#LicenceNum').append(json.LicenseNo);
-                    $('#SummaryBasisIntro').append(json.SummaryBasisIntro);
-                    $('#WhyDeviceApproved').append(json.WhyDeviceApproved);
-                    $('#WhatApproved').append(json.WhatApproved);                    
-                    $('#StepsApproval').append(json.StepsApprovalIntro);
-                    $('#FollowupMeasures').append(json.FollowupMeasures);
-                    $('#PostLicence').append(json.PostLicenceActivity);
-                    $('#OtherInfo').append(json.OtherInfo);
-                    $('#ScientificRationale').append(json.ScientificRationale);
-                    $('#MilestoneTable').append(displayAppMilestoneList(json.AppMilestoneList));
-                  
+                    $('#DeviceName').append(json.device_name);
+                    $('#DeviceName1').append(json.device_name);
+                    $('#DeviceName2').append(json.device_name);
+                    $('#DeviceName3').append(json.device_name);
+                    $('#DeviceName4').append(json.device_name);
+                    $('#DeviceName5').append(json.device_name);
+                    $('#DeviceName6').append(json.device_name);
+                    $('#DeviceName7').append(json.device_name);
+                    $('#DeviceName8').append(json.device_name);
+                    $('#DeviceName9').append(json.device_name);
+                    $('#RecentActivity').append(json.recent_activity);
+                    $('#UpdatedDate').append(formatedDate(json.updated_date));
+                    $('#LicenceNum').append(json.licence_number);
+                    $('#SummaryBasisIntro').append(json.summary_basis_intro);
+                    $('#WhyDeviceApproved').append(json.why_device_approved);
+                    $('#WhatApproved').append(json.what_approved);
+                    $('#StepsApproval').append(json.steps_approval_intro);
+                    $('#FollowupMeasures').append(json.followup_measures);
+                    $('#PostLicence').append(json.post_licence_activity);
+                    $('#OtherInfo').append(json.other_info);
+                    $('#ScientificRationale').append(json.scientific_rationale);
+                    $('#MilestoneTable').append(displayAppMilestoneList(json.app_milestone_list));                  
                 }
             },
             "orderable": false,           
             "columns": [
-                            { "data": "AppTypeNum" },
+                            { "data": "app_type_num" },
                             {
                                 "data": null,
                                 "render": function (data, type, full) {
-                                    return formatedDate(data.DateSubmit);
+                                    return formatedDate(data.date_submit);
                                 }
                             },
                             {
                                 "data": null,
                                 "render": function (data, type, full) {
-                                    return data.DecisionAndDate;
+                                    return data.decision_and_date;
                                 }
                             },
-                            { "data": "SummActivity" }
+                            { "data": "summ_activity" }
                        ]
         }
     </script>

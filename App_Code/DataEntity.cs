@@ -14,243 +14,258 @@ namespace dhpr
         dhpr
     }
 
-
-    public class regulatoryDecisionItem
+        public class regulatoryDecisionItem
     {
-        public int Id { get; set; }
-        public string LinkId { get; set; }
-        public string Drugname { get; set; }
-        public string ContactName { get; set; }
-        public string ContactUrl { get; set; }
-        public string MedicalIngredient { get; set; }
-        public string TherapeuticArea { get; set; }
-        public string Purpose { get; set; }
-        public string ReasonDecision { get; set; }      
-        public string Decision { get; set; }
-        public string DecisionDescr { get; set; }
-        public DateTime? DateDecision { get; set; }
-        public string Manufacture { get; set; }
-        public string PrescriptionStatus { get; set; }
-        public string TypeSubmission { get; set; }
-        public DateTime? DateFiled { get; set; }
-        public string ControlNumber { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public string Footnotes { get; set; }
-        public List<string> DinList { get; set; }
-        public List<BulletPoint> BulletList { get; set; }
+        public int id { get; set; }
+        public string link_id { get; set; }
+        public string drug_name { get; set; }
+        public string contact_name { get; set; }
+        public string contact_url { get; set; }
+        public string medical_ingredient { get; set; }
+        public string therapeutic_area { get; set; }
+        public string purpose { get; set; }
+        public string reason_decision { get; set; }      
+        public string decision { get; set; }
+        public string decision_descr { get; set; }
+        public DateTime? date_decision { get; set; }
+        public string manufacturer { get; set; }
+        public string prescription_status { get; set; }
+        public string type_submission { get; set; }
+        public DateTime? date_filed { get; set; }
+        public string control_number { get; set; }
+        public DateTime? created_date { get; set; }
+        public DateTime? modified_date { get; set; }
+        public string foot_notes { get; set; }
+        public List<string> din_list { get; set; }
+        public List<BulletPoint> bullet_list { get; set; }
 
     }
     public class rdsSearchItem
     {
-        public string LinkId { get; set; }
-        public string Drugname { get; set; }
-        public string MedicalIngredient { get; set; }
-        public string Manufacture { get; set; }
-        public string Decision { get; set; }
-        public DateTime? DateDecision { get; set; }
-        public string ControlNumber { get; set; }
-        public string TypeSubmission { get; set; }
-        public List<string> DinList { get; set; }
-        public string Din { get; set; }
+        public string link_id { get; set; }
+        public string drug_name { get; set; }
+        public string medical_ingredient { get; set; }
+        public string manufacturer { get; set; }
+        public string decision { get; set; }
+        public DateTime? date_decision { get; set; }
+        public string control_number { get; set; }
+        public string type_submission { get; set; }
+        public List<string> din_list { get; set; }
+        public string din { get; set; }
     }
 
     public class summarySafetyItem
     {
-        public string LinkId { get; set; }
-        public string DrugName { get; set; }
-        public string Safetyissue { get; set; }
-        public string Issue { get; set; }
-        public string Background { get; set; }
-        public string Objective { get; set; }        
-        public string KeyFindings { get; set; }  
-        public string Additional { get; set; }
-        public string FullReview { get; set; }
-        public string SrReferences { get; set; }
-        public string Footnotes { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public int Template { get; set; }
-        public List<BulletPoint> ConclusionList { get; set; }
-        public List<BulletPoint> KeyMessageList { get; set; }
-        public List<BulletPoint> UseCanadaList { get; set; }
-        public List<BulletPoint> FindingList { get; set; }        
-        public string Overview { get; set; }
-        public List<BulletPoint> FootnotesList { get; set; }
-        public List<BulletPoint> ReferenceList { get; set; }
+        public string link_id { get; set; }
+        public string drug_name { get; set; }
+        public string safety_issue { get; set; }
+        public string issue { get; set; }
+        public string background { get; set; }
+        public string objective { get; set; }        
+        public string key_findings { get; set; }  
+        public string additional { get; set; }
+        public string full_review { get; set; }
+        public string sr_references { get; set; }
+        public string foot_notes { get; set; }
+        public DateTime? created_date { get; set; }
+        public DateTime? modified_date { get; set; }
+        public int template { get; set; }
+        public List<BulletPoint> conclusion_list { get; set; }
+        public List<BulletPoint> key_message_list { get; set; }
+        public List<BulletPoint> use_canada_list { get; set; }
+        public List<BulletPoint> finding_list { get; set; }        
+        public string overview { get; set; }
+        public List<BulletPoint> footnotes_list { get; set; }
+        public List<BulletPoint> reference_list { get; set; }
     }
     public class ssrSearchItem
     {
-        public string LinkId { get; set; }
-        public string Drugname { get; set; }
-        public string Safetyissue { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public int Template { get; set; }
+        public string link_id { get; set; }
+        public string drug_name { get; set; }
+        public string safety_issue { get; set; }
+        public DateTime? created_date { get; set; }
+        public int template { get; set; }
 
     }
     public class BulletPoint
     {
-        public int FieldId { get; set; }
-        public int OrderNo { get; set; }
-        public string Bullet { get; set; }
+        public int field_id { get; set; }
+        public int order_no { get; set; }
+        public string bullet { get; set; }
     }
     public class sbdSearchItem
     {
-        public string LinkId { get; set; }
-        public string Brandname { get; set; }       
-        public string MedIngredient { get; set; }
-        public string Manufacturer { get; set; }
-        public DateTime? DateIssued { get; set; }
-        public int Template { get; set; }
-        public string LicenseNo { get; set; }
-        public bool isMd { get; set; }
-        public string Din { get; set; }
+        public string link_id { get; set; }
+        public string brand_name { get; set; }       
+        public string med_ingredient { get; set; }
+        public string manufacturer { get; set; }
+        public DateTime? date_issued { get; set; }
+        public int template { get; set; }
+        public string licence_number { get; set; }
+        public bool is_md { get; set; }
+        public string din { get; set; }
         private readonly List<string> _dinList = new List<string>();
-        public IList<string> DinList { get { return _dinList; } }
+        public IList<string> din_list { get { return _dinList; } }
     }
 
-    public class summaryBasisItem 
+    public class summaryBasisItem
     {
-        public string LinkId { get; set; }
-        public string Template { get; set; }
-        public string Brandname { get; set; }       
-        public string MedIngredient { get; set; }
-        public string Strength { get; set; }
-        public string Manufacturer { get; set; }
-        public string Dosageform { get; set; }        
-        public string ControlNum { get; set; }
-        public DateTime? DateIssued { get; set; }
-        public string NonpropName { get; set; }
-        public string RouteAdmin { get; set; }
-        public string BdDinList { get; set; }
-        public string TheraClass { get; set; }
-        public string NonmedIngredient { get; set; }
-        public string SubTypeNum { get; set; }
-        public DateTime? DateSubmission { get; set; }
-        public DateTime? DateAuthorization { get; set; }
-        public string NoticeDecision { get; set; }
-        public string QualityBasis { get; set; }
-        public string SciRegDecision { get; set; }
-        public string BenefitRisk { get; set; }
-        public string NonclinBasis { get; set; }
-        public string NonclinBasis2 { get; set; }
-        public string ClinBasis { get; set; }
-        public string ClinBasis1 { get; set; }
-        public string ClinBasis2 { get; set; }
-        public string Summary { get; set; }
-        public string WhatApproved { get; set; }
-        public string WhyApproved { get; set; }
-        public string FollowupMeasures { get; set; }
-        public string StepsApproval { get; set; }
-        public string PostAuth { get; set; }
-        public string OtherInfo { get; set; }
-        public string AClinBasis { get; set; }
-        public string AClinBasis2 { get; set; }
-        public string ANonClinBasis { get; set; }
-        public string ANonClinBasis2 { get; set; }
-        public string BQualityBasis { get; set; }
-        public string AssessBasis { get; set; }
-        public string Contact { get; set; }
-        public bool isMd { get; set; }
-        public List<string> DinList { get; set; }
-        public List<PostAuthActivity> PostActivityList { get; set; }
-        public List<PostLicensingActivity> PostLicensingList { get; set; }
-        public List<DecisionMilestone> MilestoneList { get; set; }
+        public string link_id { get; set; }
+        public string template { get; set; }
+        public string brand_name { get; set; } 
+        public string manufacturer { get; set; }               
+        public string control_number { get; set; }
+        public DateTime? date_issued { get; set; }
+        public string sub_type_number { get; set; }
+        public DateTime? date_submission { get; set; }
+        public DateTime? date_authorization { get; set; }
+        public string notice_decision { get; set; }
+        public string quality_basis { get; set; }
+        public string sci_reg_decision { get; set; }
+        public string benefit_risk { get; set; }
+        public string non_clin_basis { get; set; }
+        public string non_clin_basis2 { get; set; }
+        public string clin_basis { get; set; }
+        public string clin_basis1 { get; set; }
+        public string clin_basis2 { get; set; }
+        public string summary { get; set; }
+        public string what_approved { get; set; }
+        public string why_approved { get; set; }
+        public string followup_measures { get; set; }
+        public string steps_approval { get; set; }
+        public string post_auth { get; set; }
+        public string other_info { get; set; }
+        public string a_clin_basis { get; set; }
+        public string a_clin_basis2 { get; set; }
+        public string a_non_clin_basis { get; set; }
+        public string a_non_clin_basis2 { get; set; }
+        public string b_quality_basis { get; set; }
+        public string assess_basis { get; set; }
+        public string contact { get; set; }
+        public string med_ingredient { get; set; }
+        //public string non_prop_name { get; set; }
+        //public string strength { get; set; }
+        //public string dosage_form { get; set; }
+        //public string route_admin { get; set; }
+        //public string bd_din_list { get; set; }
+        //public string thera_class { get; set; }
+        //public string non_med_ingredient { get; set; }
+        public string paat_message { get; set; }
+        public bool is_md { get; set; }
+        public List<string> din_list { get; set; }
+        public List<PostAuthActivity> post_activity_list { get; set; }
+        public List<PostLicensingActivity> post_licensing_list { get; set; }
+        public List<DecisionMilestone> milestone_list { get; set; }
+        public List<Tombstone> tombstone_list { get; set; }
     }
 
 
     public class summaryBasisMDItem
     {
-        public int Template { get; set; }
-        public string LinkId { get; set; }
-        public string DeviceName { get; set; }
-        public string ApplicationNum { get; set; }
-        public string RecentActivity { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public string SummaryBasisIntro { get; set; }
-        public string WhatApproved { get; set; }
-        public string WhyDeviceApproved { get; set; }
-        public string StepsApprovalIntro { get; set; }
-        public string FollowupMeasures { get; set; }
-        public string PostLicenceActivity { get; set; }
-        public string OtherInfo { get; set; }
-        public string ScientificRationale { get; set; }
-        public string ScientificRationale2 { get; set; }
-        public string ScientificRationale3 { get; set; }
-        public DateTime? DateSbdIssued { get; set; }
+        public int template { get; set; }
+        public string link_id { get; set; }
+        public string device_name { get; set; }
+        public string application_num { get; set; }
+        public string recent_activity { get; set; }
+        public DateTime? updated_date { get; set; }
+        public string summary_basis_intro { get; set; }
+        public string what_approved { get; set; }
+        public string why_device_approved { get; set; }
+        public string steps_approval_intro { get; set; }
+        public string followup_measures { get; set; }
+        public string post_licence_activity { get; set; }
+        public string other_info { get; set; }
+        public string scientific_rationale { get; set; }
+        public string scientific_rationale2 { get; set; }
+        public string scientific_rationale3 { get; set; }
+        public DateTime? date_sbd_issued { get; set; }
 
-        public string Egalement { get; set; }
-        public string Manufacturer { get; set; }
-        public string MedicalDeviceGroup { get; set; }
-        public string BiologicalMaterial { get; set; }
+        public string egalement { get; set; }
+        public string manufacturer { get; set; }
+        public string medical_device_group { get; set; }
+        public string biological_material { get; set; }
 
-        public string CombinationProduct { get; set; }
-        public string DrugMaterial { get; set; }
-        public string ApplicationTypeAndNum { get; set; }
-        public DateTime? DateLicenceIssued { get; set; }
-        public string IntendedUse { get; set; }
-        public string NoticeOfDecision { get; set; }
-        public string SciRegBasisDecision1 { get; set; }
-        public string SciRegBasisDecision2 { get; set; }
-        public string SciRegBasisDecision3 { get; set; }
-        public string ResponseToCondition { get; set; }
-
-        public string Conclusion { get; set; }
-        public string Recommendation { get; set; }
-        public string LicenseNo { get; set; }
-
-        public bool isMd { get; set; }
-
-        public List<PostLicensingActivity> PlatList { get; set; }
-        public List<ApplicationMilestones> AppMilestoneList { get; set; }
+        public string combination_product { get; set; }
+        public string drug_material { get; set; }
+        public string application_type_and_num { get; set; }
+        public DateTime? date_licence_issued { get; set; }
+        public string intended_use { get; set; }
+        public string notice_of_decision { get; set; }
+        public string sci_reg_basis_decision1 { get; set; }
+        public string sci_reg_basis_decision2 { get; set; }
+        public string sci_reg_basis_decision3 { get; set; }
+        public string response_to_condition { get; set; }
+        public string conclusion { get; set; }
+        public string recommendation { get; set; }
+        public string licence_number { get; set; }
+        public bool is_md { get; set; }
+        public List<PostLicensingActivity> plat_list { get; set; }
+        public List<ApplicationMilestones> app_milestone_list { get; set; }
 
     }
 
     public class PostLicensingActivity
     {
-        public string LinkId { get; set; }
-        public DateTime? DateSubmit { get; set; }
-
-        public int NumOrder { get; set; }
-        public string AppTypeNum { get; set; }
-
-        public string DecisionAndDate { get; set; }
-        public string SummActivity { get; set; }
+        public string link_id { get; set; }
+        public DateTime? date_submit { get; set; }
+        public int num_order { get; set; }
+        public string app_type_num { get; set; }
+        public string decision_and_date { get; set; }
+        public string summ_activity { get; set; }
     }
+
     public class PostAuthActivity
-    {
-        public string LinkId { get; set; }
-        public DateTime? DateSubmit { get; set; }
-        public DateTime? DecisionStartDate { get; set; }
-        public DateTime? DecisionEndDate { get; set; }
-        public int RowNum { get; set; }
-        public string ActContrNum { get; set; }
-        public string SubmitText { get; set; }
-        public string PaatDecision { get; set; }
-        public string DateText { get; set; }
-        public string SummActivity { get; set; }
+    { 
+        public string link_id { get; set; }
+        public DateTime? date_submit { get; set; }
+        public DateTime? decision_start_date { get; set; }
+        public DateTime? decision_end_date { get; set; }
+        public int row_num { get; set; }
+        public string act_contr_num { get; set; }
+        public string submit_text { get; set; }
+        public string paat_decision { get; set; }
+        public string date_text { get; set; }
+        public string summ_activity { get; set; }
     }
-
-
 
     public class DecisionMilestone
     {
-        public string LinkId { get; set; }
-        public int NumOrder { get; set; }
-        public string Milestone { get; set; }
-        public DateTime? CompletedDate { get; set; }
-        public DateTime? CompletedDate2 { get; set; }
-        public string Separator { get; set; }
+        public string link_id { get; set; }
+        public int num_order { get; set; }
+        public string milestone { get; set; }
+        public DateTime? completed_date { get; set; }
+        public DateTime? completed_date2 { get; set; }
+        public string separator { get; set; }
     }
 
+    public class DecisionTombstone
+    {
+        public string link_id { get; set; }
+
+    }
     public class ApplicationMilestones
     {
 
-        public string LinkId { get; set; }
-        public int NumOrder { get; set; }
-        public string ApplicationMilestone { get; set; }
-        public DateTime? MilestoneDate { get; set; }
-        public DateTime? MilestoneDate2 { get; set; }
-        public string Separator { get; set; }
+        public string link_id { get; set; }
+        public int num_order { get; set; }
+        public string application_milestone { get; set; }
+        public DateTime? milestone_date { get; set; }
+        public DateTime? milestone_date2 { get; set; }
+        public string separator { get; set; }
     }
+
+    public class Tombstone
+    {
+
+        public string link_id { get; set; }
+        public int num_order { get; set; }
+        public string med_ingredient { get; set; }
+        public string nonprop_name { get; set; }
+        public string strength { get; set; }
+        public string dosageform { get; set; }
+        public string route_admin { get; set; }
+        public string thera_class { get; set; }
+        public string nonmed_ingredient { get; set; }
+
+    }  
 }

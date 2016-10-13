@@ -120,6 +120,9 @@
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="NoPaatData" xml:space="preserve">
+    <value>At this time, no PAAT is available for {0}. When the PAAT for {0} becomes available, it will be incorporated into this SBD</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
