@@ -338,11 +338,8 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
         var pType = "rds";
         $("a#langLink").attr('href', goDhprLangUrlByID(lang, pType, 'sommaire-decision-reglementaire-detail'));
 
-        $.getJSON(goDhprUrlByID(lang, pType), function (data) {
-            if ($.trim(data.link_id) == '') {
-                OnFail("");
-            }
-            else {
+        $.getJSON(goDhprUrlByID(lang, pType), function (data, status, xhr) {
+            if (status == "success") {
                 $('#Drugname').append(data.drug_name);
                 $('#MedicalIngredient').append(data.medical_ingredient);
                 $('#TherapeuticArea').append(data.therapeutic_area);
@@ -352,12 +349,17 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                 $('#ReasonDecision').append(data.reason_decision);
                 $('#Decision').append(data.decision);
                 $('#DateDecision').append(formatedDate(data.date_decision));
-                $('#Manufacture').append(data.manufacturer);  
-                $('#DateFiled').append(formatedDate(data.date_filed)); 
+                $('#Manufacture').append(data.manufacturer);
+                $('#DateFiled').append(formatedDate(data.date_filed));
                 $('#Contact').append(formatedContact(data.contact_name, data.contact_url));
                 $('#Din').append(formatedList(data.din_list));
                 $('#PrescriptionStatus').append(data.prescription_status);
                 $('#Footnotes').append(formatedBulletList(data.bullet_list, 2));
+            } else if (status == "error" || status == "parsererror") {
+                console.log("error " + status);
+                console.log("incoming Text " + xhr.responseText);
+            } else {
+
             }
        });
     </script>

@@ -142,7 +142,36 @@ namespace dhpr
             return item;
         }
 
+        public static regulatoryDecisionMedicalDevice GetRDSMedicalDeviceByID(string rdsID, string lang)
+        {
+            var item = new regulatoryDecisionMedicalDevice();
+            var json = string.Empty;
+            var postData = new Dictionary<string, string>();
+            var rdsJsonUrlbyID = string.Format("{0}&id={1}&lang={2}", ConfigurationManager.AppSettings["rdsmdJsonUrl"].ToString(), rdsID, lang);
 
+            try
+            {
+                using (var webClient = new System.Net.WebClient())
+                {
+                    webClient.Encoding = Encoding.UTF8;
+                    json = webClient.DownloadString(rdsJsonUrlbyID);
+                    if (!string.IsNullOrWhiteSpace(json))
+                    {
+                        item = JsonConvert.DeserializeObject<regulatoryDecisionMedicalDevice>(json);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                var errorMessages = string.Format("UtilityHelper - GetRDSMedicalDeviceByID()- Error Message:{0}", ex.Message);
+                ExceptionHelper.LogException(ex, errorMessages);
+            }
+            finally
+            {
+
+            }
+            return item;
+        }
         public static List<ssrSearchItem> GetSummarySafetyList(string lang, string term)
         {
             // CertifySSL.EnableTrustedHosts();

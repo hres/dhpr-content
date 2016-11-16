@@ -29,7 +29,8 @@ namespace dhpr
         public static string GetProgramType(this NameValueCollection queryString)
         {
             return queryString.AllKeys.Contains("pType") ? queryString["pType"] : string.Empty;
-        }        
+        }
+      
         #endregion
 
     }

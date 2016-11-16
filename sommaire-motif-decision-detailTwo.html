@@ -151,12 +151,11 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                         <p class="col-sm-1"><strong>Contact&nbsp;:</strong></p>
                         <div class="col-sm-11 mrgn-lft-0"><p id="Contact"></p></div>
                     </div>
-                    <p><strong>Ce document est une traduction française du document anglais approuvé. </strong></p>
                     <p>Les sommaires des motifs de décision (SMD) présentent des renseignements sur l'autorisation initiale d'un produit. Le <a href="#Brandname4">SMD</a> portant sur  <span id="Brandname1"></span> est accessible ci-dessous.</p>
 
                     <details class="margin-top-medium" open>
                         <summary class="well well-sm">Activité récente</summary>
-                        <p id="RecentActivity">Les SMD relatifs aux <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/sbd_qa_smd_fq-fra.php">médicaments autorisés</a> après le 1 septembre 2012 seront mis à jour afin d'inclure des renseignements sous forme de tableau des activités postautorisation (TAPA). Le TAPA comprendra de brefs résumés d'activités telles que la présentation de demandes de nouvelles utilisations, ainsi que la décision de Santé Canada (positive ou négative). Les TAPA seront mis à jour régulièrement en ce qui a trait aux activités postautorisation tout au long du cycle de vie du produit.  <span id="paatMessage"></span></p>
+                        <p id="RecentActivity">Les SMD relatifs aux <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/sbd_qa_smd_fq-fra.php">médicaments autorisés</a> après le 1<sup>er</sup> septembre 2012 seront mis à jour afin d'inclure des renseignements sous forme de tableau des activités postautorisation (TAPA). Le TAPA comprendra de brefs résumés d'activités telles que la présentation de demandes de nouvelles utilisations, ainsi que la décision de Santé Canada (positive ou négative). Les TAPA seront mis à jour régulièrement en ce qui a trait aux activités postautorisation tout au long du cycle de vie du produit.  <span id="paatMessage"></span></p>
                     </details>
                    
                         <details class="margin-top-medium" id="paatDiv">
@@ -194,7 +193,8 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                                 <div class="col-sm-8"><p id="DateIssued2"></p></div>
                             </div>
                             <p>L'information suivante concerne l'autorisation initiale de la présentation de drogue nouvelle pour <span id="Brandname3"></span>.</p>
-                            <div><p><strong id="TombstoneList"></strong></p></div>
+                            <div><strong><span id="MedIngredient2"></span></strong></div>
+                            <div><strong><span id="Strength"></span></strong></div>
                             <div class="row">
                                 <p class="col-sm-4"><strong>Identification(s) numérique(s) de drogue(s):</strong></p>
                                 <div class="col-sm-8"><p id="DinList"></p></div>
@@ -417,7 +417,7 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                     $('#MilestoneTable').append(displayMilestoneList(json.milestone_list));
                     $('#DinList').append(formatedList(json.din_list));
                     //$('#DinList2').append(formatedDinWithOthers(json.din_list, json.MedIngredient, json.RouteAdmin));
-                    $('#TombstoneList').append(formatedTombstoneList(json.tombstone_list));
+                    //$('#Strength').append(formatedMedIngredientDesc(json.Strength, json.Dosageform, json.RouteAdmin));
                     $('#AssessBasis').append(json.assess_basis);
                     $('#MedIngredient').append(json.med_ingredient);
                     $('#MedIngredient2').append(json.med_ingredient);

@@ -11,10 +11,11 @@ namespace dhpr
         ssr,
         sbd,
         sbdmd,
+        rdsmd,
         dhpr
     }
 
-        public class regulatoryDecisionItem
+    public class regulatoryDecisionItem
     {
         public int id { get; set; }
         public string link_id { get; set; }
@@ -38,8 +39,29 @@ namespace dhpr
         public string foot_notes { get; set; }
         public List<string> din_list { get; set; }
         public List<BulletPoint> bullet_list { get; set; }
-
     }
+
+    public class regulatoryDecisionMedicalDevice
+    {
+        public string link_id { get; set; }
+        public string drug_name { get; set; }
+        public string contact_name { get; set; }
+        public string contact_url { get; set; }
+        public string decision { get; set; }
+        public string decision_descr { get; set; }
+        public DateTime? date_decision { get; set; }
+        public string type_application { get; set; }
+        public DateTime? date_filed { get; set; }
+        public int application_number { get; set; }
+        public bool is_md { get; set; }
+        public string device_class { get; set; }
+        public string what_app_for { get; set; }
+        public string info_reviewed { get; set; }
+        public string licence_num_issued { get; set; }
+        public string manufacturer { get; set; }
+        public string medical_ingredient { get; set; }
+    }
+
     public class rdsSearchItem
     {
         public string link_id { get; set; }
@@ -52,6 +74,7 @@ namespace dhpr
         public string type_submission { get; set; }
         public List<string> din_list { get; set; }
         public string din { get; set; }
+        public bool is_md { get; set; }
     }
 
     public class summarySafetyItem
@@ -195,6 +218,9 @@ namespace dhpr
         public string sci_reg_basis_decision2 { get; set; }
         public string sci_reg_basis_decision3 { get; set; }
         public string response_to_condition { get; set; }
+        public string response_to_condition2 { get; set; }
+        public string response_to_condition3 { get; set; }
+        public string response_to_condition4 { get; set; }
         public string conclusion { get; set; }
         public string recommendation { get; set; }
         public string licence_number { get; set; }

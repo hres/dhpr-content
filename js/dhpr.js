@@ -1,8 +1,15 @@
-﻿var dhpr = "http://api.hres.ca/dhpr/controller/dhprController.ashx?";
-//var dhpr = "./controller/dhprController.ashx?";
+﻿//var dhpr = "http://api.hres.ca/dhpr/controller/dhprController.ashx?";
+var dhpr = "./controller/dhprController.ashx?";
 
 $("summary").addClass("wb-toggle well well-sm");
 $("summary").attr("data-toggle", "{\"persist\": \"session\"}");
+
+var jsonbread = [{ title: "Home", href: "http://www.canada.ca/" }, { title: "All Services", href: "http://www.canada.ca/en/services/index.html" },
+        { title: "Health", href: "http://healthycanadians.gc.ca/index-eng.php" },
+        { title: "Drugs, health & consumer products", href: "http://healthycanadians.gc.ca/drugs-products-medicaments-produits/index-eng.php" },
+        { title: "Drug Product Search" }];
+
+var term = getParameterByName("term");
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -26,7 +33,8 @@ function goDhprLangUrl(lang, pType,term, pageName) {
 
 function goDhprUrlByID(lang, pType) {
     var linkID = getParameterByName("linkID");
-    var searchUrl = dhpr + "linkID=" + linkID +  "&pType=" + pType + "&lang=" + lang;
+    var searchUrl = dhpr + "linkID=" + linkID + "&pType=" + pType + "&lang=" + lang;
+    //console.log(searchUrl);
     return searchUrl;
 }
 function goDhprLangUrlByID(lang, pType, pageName) {
@@ -127,7 +135,7 @@ function formatedTombstoneList(data) {
     if (data.length == 0) {
         return "&nbsp;";
     }
-    console.log(data.length);
+    //console.log(data.length);
     var txt = "";
     var i;
     for (i = 0; i < data.length; i++) {

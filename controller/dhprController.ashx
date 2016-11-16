@@ -34,25 +34,41 @@ namespace dhpr
                 var term  = context.Request.QueryString.GetSearchTerm().ToLower().Trim();
                 var pType = string.IsNullOrEmpty(context.Request.QueryString.GetProgramType().Trim()) ? programType.dhpr : (programType)Enum.Parse(typeof(programType), context.Request.QueryString.GetProgramType().Trim());
                 var linkId = string.IsNullOrWhiteSpace(context.Request.QueryString.GetLinkID().Trim())? string.Empty: context.Request.QueryString.GetLinkID().Trim();
+              
 
                 if( !string.IsNullOrWhiteSpace(linkId))
                 {
                     switch (pType)
                     {
                         case programType.rds:
-                            var rdsItem = new regulatoryDecisionItem();
-                            rdsItem = UtilityHelper.GetRdsByID(linkId, lang);
-                            if( !string.IsNullOrWhiteSpace(rdsItem.link_id))
-                            {
-                                rdsItem.decision = string.Format("{0}{1}", rdsItem.decision, rdsItem.decision_descr);
-                                jsonResult = JsonHelper.JsonSerializer<regulatoryDecisionItem>(rdsItem);
-                                context.Response.Write(jsonResult);
-                            }
-                            else
-                            {
-                                context.Response.Write("{\"link_id\":\"\"}");
-                            }
-                            break;
+                                var rdsItem = new regulatoryDecisionItem();
+                                rdsItem = UtilityHelper.GetRdsByID(linkId, lang );
+                                if( !string.IsNullOrWhiteSpace(rdsItem.link_id))
+                                {
+                                    rdsItem.decision = string.Format("{0}{1}", rdsItem.decision, rdsItem.decision_descr);
+                                    jsonResult = JsonHelper.JsonSerializer<regulatoryDecisionItem>(rdsItem);
+                                    context.Response.Write(jsonResult);
+                                }
+                                else
+                                {
+                                    context.Response.Write("{\"link_id\":\"\"}");
+                                }
+                                break;
+                            case programType.rdsmd:
+                           
+                                var rdsMDItem = new regulatoryDecisionMedicalDevice();
+                                rdsMDItem = UtilityHelper.GetRDSMedicalDeviceByID(linkId, lang );
+                                if( !string.IsNullOrWhiteSpace(rdsMDItem.link_id))
+                                {
+                                    rdsMDItem.decision = string.Format("{0}{1}", rdsMDItem.decision, rdsMDItem.decision_descr);
+                                    jsonResult = JsonHelper.JsonSerializer<regulatoryDecisionMedicalDevice>(rdsMDItem);
+                                    context.Response.Write(jsonResult);
+                                }
+                                else
+                                {
+                                    context.Response.Write("{\"link_id\":\"\"}");
+                                }
+                                break;
                         case programType.ssr:
                             var ssrItem = new summarySafetyItem();
                             ssrItem = UtilityHelper.GetSsrByID(linkId, lang);

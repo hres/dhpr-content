@@ -361,29 +361,30 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
         $("a#langLink").attr('href', goDhprLangUrlByID(lang, pType, 'summary-basis-decision-medical-device-detailOne'));
 
          $.getJSON(goDhprUrlByID(lang, pType), function (data) {
-             if ($.trim(data.link_id) == '') {
+             if ($.trim(data.LinkId) == '') {
                  OnFail("");
              }
              else {
-                 $('#DeviceName').append(data.device_name);
-                 $('#DeviceName1').append(data.device_name);
-                 $('#DeviceName2').append(data.device_name);
-                 $('#Manufacturer').append(data.manufacturer);
-                 $('#Manufacturer1').append(data.manufacturer);
-                 $('#ApplicationNumber').append(data.application_num);
-                 $('#LicenceNum').append(data.licence_number);
-                 $('#DateIssued').append(formatedDate(data.date_licence_issued));
-                 $('#MedicalDeviceGroup').append(data.medical_device_group);
-                 $('#BiologicalMaterial').append(data.biological_material);
-                 $('#LicenceNum1').append(data.licence_number);
-                 $('#CombinationProduct').append(data.combination_product);
-                 $('#DrugMaterial').append(data.drug_material);
-                 $('#ApplicationTypeNum').append(data.application_type_and_num);
-                 $('#DateLicenceIssued').append(formatedDate(data.date_licence_issued));
-                 $('#IntendedUse').append(data.intended_use);
-                 $('#ResponseCondition').append(data.response_to_condition);
-                 $('#Conclusion').append(data.conclusion);
-                 $('#Recommendation').append(data.recommendation);
+                 $('#DeviceName').append(data.DeviceName);
+                 $('#DeviceName1').append(data.DeviceName);
+                 $('#DeviceName2').append(data.DeviceName);
+                 $('#Manufacturer').append(data.Manufacturer);
+                 $('#Manufacturer1').append(data.Manufacturer);
+                 $('#ApplicationNumber').append(data.ApplicationNum);
+                 $('#LicenceNum').append(data.LicenseNo);
+                 $('#DateIssued').append(formatedDate(data.DateLicenceIssued));
+                 $('#MedicalDeviceGroup').append(data.MedicalDeviceGroup);
+                 $('#BiologicalMaterial').append(data.BiologicalMaterial);
+                 $('#LicenceNum1').append(data.LicenseNo);
+                 $('#CombinationProduct').append(data.CombinationProduct);
+                 $('#DrugMaterial').append(data.DrugMaterial);
+                 $('#ApplicationTypeNum').append(data.ApplicationTypeAndNum);
+                 $('#DateLicenceIssued').append(formatedDate(data.DateLicenceIssued));
+                 $('#IntendedUse').append(data.IntendedUse);
+                 $('#ResponseCondition').append(data.ResponseToCondition + data.ResponseToCondition2 + data.ResponseToCondition3 + data.ResponseToCondition4);
+                 $('#Conclusion').append(data.Conclusion);
+                 $('#Recommendation').append(data.Recommendation);
+
              }
          });
     </script>
