@@ -148,8 +148,11 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                         <h2 id="title" class="panel-title">SOMMAIRE DES MOTIFS DE DÉCISION (SMD) <span id="DeviceName"></span></h2>
                     </div>
                     <div class="panel-body">
-                        <p class="mrgn-bttm-lg">Contact: <a href="http://www.hc-sc.gc.ca/dhp-mps/contact/tpd-dpt/contact_devicelic_instrumentlic-fra.php">Homologation des matériels médicaux</a></p>
-                        <div class="mrgn-bttm-md"><strong><span id="DeviceName1"></span></strong></div>
+                        <div class="row">
+                            <p class="col-sm-1"><strong>Contact&nbsp;:</strong></p>
+                            <div class="col-sm-11 mrgn-lft-0"><p><a href="http://www.hc-sc.gc.ca/dhp-mps/contact/tpd-dpt/contact_devicelic_instrumentlic-fra.php">Homologation des matériels médicaux</a></p></div>
+                        </div>                        
+                        <div><strong><span id="DeviceName1"></span></strong></div>
                         <div class="row">
                             <p class="col-sm-12"><strong><span id="Manufacturer"></span></strong></p>
                         </div>
@@ -360,33 +363,34 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
         var pType = "sbdmd";
         $("a#langLink").attr('href', goDhprLangUrlByID(lang, pType, 'summary-basis-decision-medical-device-detailOne'));
 
-         $.getJSON(goDhprUrlByID(lang, pType), function (data) {
-             if ($.trim(data.LinkId) == '') {
-                 OnFail("");
-             }
-             else {
-                 $('#DeviceName').append(data.DeviceName);
-                 $('#DeviceName1').append(data.DeviceName);
-                 $('#DeviceName2').append(data.DeviceName);
-                 $('#Manufacturer').append(data.Manufacturer);
-                 $('#Manufacturer1').append(data.Manufacturer);
-                 $('#ApplicationNumber').append(data.ApplicationNum);
-                 $('#LicenceNum').append(data.LicenseNo);
-                 $('#DateIssued').append(formatedDate(data.DateLicenceIssued));
-                 $('#MedicalDeviceGroup').append(data.MedicalDeviceGroup);
-                 $('#BiologicalMaterial').append(data.BiologicalMaterial);
-                 $('#LicenceNum1').append(data.LicenseNo);
-                 $('#CombinationProduct').append(data.CombinationProduct);
-                 $('#DrugMaterial').append(data.DrugMaterial);
-                 $('#ApplicationTypeNum').append(data.ApplicationTypeAndNum);
-                 $('#DateLicenceIssued').append(formatedDate(data.DateLicenceIssued));
-                 $('#IntendedUse').append(data.IntendedUse);
-                 $('#ResponseCondition').append(data.ResponseToCondition + data.ResponseToCondition2 + data.ResponseToCondition3 + data.ResponseToCondition4);
-                 $('#Conclusion').append(data.Conclusion);
-                 $('#Recommendation').append(data.Recommendation);
-
-             }
-         });
+        $.getJSON(goDhprUrlByID(lang, pType), function (data, status, xhr) {
+            console.log("data.application_num : " + data.application_num);
+            if (status == "success") {
+                $('#DeviceName').append(data.device_name);
+                $('#DeviceName1').append(data.device_name);
+                $('#DeviceName2').append(data.device_name);
+                $('#Manufacturer').append(data.manufacturer);
+                $('#Manufacturer1').append(data.manufacturer);
+                $('#ApplicationNumber').append(data.application_num);
+                $('#LicenceNum').append(data.licence_number);
+                $('#DateIssued').append(formatedDate(data.date_sbd_issued));
+                $('#MedicalDeviceGroup').append(data.medical_device_group);
+                $('#BiologicalMaterial').append(data.biological_material);
+                $('#LicenceNum1').append(data.licence_number);
+                $('#CombinationProduct').append(data.combination_product);
+                $('#DrugMaterial').append(data.drug_material);
+                $('#ApplicationTypeNum').append(data.application_type_and_num);
+                $('#DateLicenceIssued').append(formatedDate(data.date_licence_issued));
+                $('#IntendedUse').append(data.intended_use);
+                $('#ResponseCondition').append(data.response_to_condition + data.response_to_condition2 + data.response_to_condition3 + data.response_to_condition4);
+                $('#Conclusion').append(data.conclusion);
+                $('#Recommendation').append(data.recommendation);
+            } else if (status == "error" || status == "parsererror") {
+                //console.log("error " + status);
+                //console.log("incoming Text " + xhr.responseText);
+            } else {
+            }
+        });
     </script>
 </body>
 </html>

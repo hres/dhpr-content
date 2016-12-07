@@ -155,16 +155,19 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                         <h2 id="title" class="panel-title"><span id="DeviceName"></span></h2>
                     </div>
                     <div class="panel-body"> 
-                        <p>Contact: <a href="http://www.hc-sc.gc.ca/contact/dhp-mps/hpfb-dgpsa/devicelic-instrumentlic-eng.php">Medical Devices Bureau</a></p>  
+                        <div class="row">
+                            <p class="col-sm-1"><strong>Contact&nbsp;:</strong></p>
+                            <div class="col-sm-11 mrgn-lft-0"><p><a href="http://www.hc-sc.gc.ca/contact/dhp-mps/hpfb-dgpsa/devicelic-instrumentlic-eng.php">Medical Devices Bureau</a></p></div>
+                        </div> 
                         <details class="margin-top-medium">
                             <summary class="well well-sm">Summary Basis of Decision (SBD)</summary>
-                            <p>Summary basis of decision (SBD) documents provide information related to the original authorization of a product. The SBD for the <span id="DeviceName1"></span> is located below.</p>
+                            <p>Summary basis of decision (SBD) documents provide information related to the original authorization of a product. The <a href="#DeviceName5">SBD</a> for the <span id="DeviceName1"></span> is located below.</p>
                         </details>
                             <details class="margin-top-medium">
                                 <summary class="well well-sm">Recent activity for the <span id="DeviceName2"></span> </summary>
                                 <p id="RecentActivity"></p>
                             </details>
-                            <details class="margin-top-medium">
+                            <details class="margin-top-medium" id="platDiv">
                                 <summary class="well well-sm">Post-Licensing Activity Table (PLAT) for the <span id="DeviceName3"></span></summary>
                                 <div class="row">
                                     <p class="col-sm-4"><strong>Updated:</strong></p>
@@ -191,7 +194,7 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                                     <tbody id="tbodyMain"></tbody>
                                 </table>
                             </details>
-                            <details class="margin-top-medium">
+                            <details class="margin-top-medium" >
                                 <summary class="well well-sm">Summary Basis of Decision (SBD) for <span id="DeviceName5"></span></summary>
                                 <div class="row">
                                     <p id="SummaryBasisIntro"></p>
@@ -415,6 +418,15 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                             { "data": "summ_activity" }
                        ]
         }
+        $(".wb-tables").on("xhr.dt", function (e, settings, json, xhr) {
+            var count = Object.keys(json.data).length;
+            if (count > 0) {
+                $('#platDiv').show();
+            }
+            else {
+                $('#platDiv').hide();
+            }
+        });
     </script>
 </body>
 </html>

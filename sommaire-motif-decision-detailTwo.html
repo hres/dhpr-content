@@ -155,14 +155,14 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
 
                     <details class="margin-top-medium" open>
                         <summary class="well well-sm">Activité récente</summary>
-                        <p id="RecentActivity">Les SMD relatifs aux <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/sbd_qa_smd_fq-fra.php">médicaments autorisés</a> après le 1<sup>er</sup> septembre 2012 seront mis à jour afin d'inclure des renseignements sous forme de tableau des activités postautorisation (TAPA). Le TAPA comprendra de brefs résumés d'activités telles que la présentation de demandes de nouvelles utilisations, ainsi que la décision de Santé Canada (positive ou négative). Les TAPA seront mis à jour régulièrement en ce qui a trait aux activités postautorisation tout au long du cycle de vie du produit.  <span id="paatMessage"></span></p>
+                        <p id="RecentActivity">Les SMD relatifs aux <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/sbd_qa_smd_fq-fra.php#a4">médicaments autorisés</a> après le 1<sup>er</sup> septembre 2012 seront mis à jour afin d'inclure des renseignements sous forme de tableau des activités postautorisation (TAPA). Le TAPA comprendra de brefs résumés d'activités telles que la présentation de demandes de nouvelles utilisations, ainsi que la décision de Santé Canada (positive ou négative). Les TAPA seront mis à jour régulièrement en ce qui a trait aux activités postautorisation tout au long du cycle de vie du produit.  <span id="paatMessage"></span></p>
                     </details>
                    
                         <details class="margin-top-medium" id="paatDiv">
                             <summary class="well well-sm">Tableau des activités postautorisation (TAPA)</summary>
                             <div class="row">
                                 <p class="col-sm-4"><strong>Mise à jour:</strong></p>
-                                <div class="col-sm-8"><p id="DateIssued"></p></div>
+                                <div class="col-sm-8"><p id="DateAuthorization"></p></div>
                             </div>
 
                             <p>Le tableau suivant décrit les activités postautorisation menées à <span id="Brandname2"></span>, un produit dont l'ingrédient médicinal est <span id="MedIngredient"></span>. Pour en savoir plus sur le type de renseignements présentés dans les TAPA, veuillez consulter la <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/sbd_qa_smd_fq-fra.php">Foire aux questions : Phase II du projet de sommaires des motifs de décision (SMD).</a></p>
@@ -190,12 +190,12 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <summary class="well well-sm">Sommaire des motifs de décision portant sur <span id="Brandname4"></span></summary>
                             <div class="row">
                                 <p class="col-sm-4"><strong>SMD émis le:</strong></p>
-                                <div class="col-sm-8"><p id="DateIssued2"></p></div>
+                                <div class="col-sm-8"><p id="DateIssued"></p></div>
                             </div>
                             <p>L'information suivante concerne l'autorisation initiale de la présentation de drogue nouvelle pour <span id="Brandname3"></span>.</p>
-                            <div><strong><span id="MedIngredient2"></span></strong></div>
-                            <div><strong><span id="Strength"></span></strong></div>
-                            <div class="row">
+                            <div><p><strong id="TombstoneList"></strong></p></div>
+                            
+                             <div class="row">
                                 <p class="col-sm-4"><strong>Identification(s) numérique(s) de drogue(s):</strong></p>
                                 <div class="col-sm-8"><p id="DinList"></p></div>
                             </div>
@@ -239,7 +239,7 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <summary class="well well-sm" id="OtherInfoTitle">6 Quels sont les autres renseignements disponibles à propos des drogues?</summary>
                             <p id="OtherInfo"></p>
                         </details>
-                        <details class="margin-top-medium">
+                        <details class="margin-top-medium" open>
                             <summary class="well well-sm">7 Quelle est la justification scientifique sur laquelle s'est fondé Santé Canada?</summary>
                             <div>
                                 <details class="margin-top-medium">
@@ -402,7 +402,7 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                     $('#Manufacturer2').append(json.manufacturer);
                     $('#ControlNum').append(json.control_number);
                     $('#DateIssued').append(formatedDate(json.date_issued));
-                    $('#DateIssued2').append(formatedDate(json.date_issued));
+                    $('#DateAuthorization').append(formatedDate(json.date_authorization));
                     $('#SubTypeNum').append(json.sub_type_number);
                     $('#Summary').append(json.summary);
                     $('#WhyApproved').append(json.why_approved);
@@ -416,11 +416,12 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                     $('#AClinBasis').append(formatedClinBasisDesc(json.a_clin_basis, json.a_clin_basis2, ""));
                     $('#MilestoneTable').append(displayMilestoneList(json.milestone_list));
                     $('#DinList').append(formatedList(json.din_list));
-                    //$('#DinList2').append(formatedDinWithOthers(json.din_list, json.MedIngredient, json.RouteAdmin));
-                    //$('#Strength').append(formatedMedIngredientDesc(json.Strength, json.Dosageform, json.RouteAdmin));
+                    $('#DinList2').append(formatedList(json.din_list));
+                    $('#TombstoneList').append(formatedTombstoneList(json.tombstone_list));
                     $('#AssessBasis').append(json.assess_basis);
                     $('#MedIngredient').append(json.med_ingredient);
                     $('#MedIngredient2').append(json.med_ingredient);
+
                 }
             },
             "columns": [

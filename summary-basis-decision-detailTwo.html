@@ -171,7 +171,7 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                             <summary class="well well-sm">Post-authorization activity table</summary>
                             <div class="row">
                                 <p class="col-sm-4"><strong>Updated:</strong></p>
-                                <div class="col-sm-8"><p id="DateIssued"></p></div>
+                                <div class="col-sm-8"><p id="DateAuthorization"></p></div>
                             </div>
                             
                             <p>The following table describes post-authorization activity for <span id="Brandname2"></span>, a product which contains the medicinal ingredient <span id="MedIngredient"></span>. For more information on the type of information found in PAATs, please refer to the <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/sbd_qa_smd_fq-eng.php">Frequently Asked Questions: Summary Basis of Decision (SBD) Project: Phase II</a>.</p>
@@ -200,7 +200,7 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                             <summary class="well well-sm">Summary basis of decision for <span id="Brandname4"></span></summary>
                             <div class="row">
                                 <p class="col-sm-4"><strong>Date SBD issued:</strong></p>
-                                <div class="col-sm-8"><p id="DateIssued2"></p></div>
+                                <div class="col-sm-8"><p id="DateIssued"></p></div>
                             </div>
                             <p>The following information relates to the original authorization of the new drug submission for <span id="Brandname3"></span>.</p>
                             <div><p><strong id="TombstoneList"></strong></p></div>
@@ -249,8 +249,8 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                                 <summary class="well well-sm"  id="OtherInfoTitle">6 What other information is available about drugs?</summary>
                                 <p id="OtherInfo"></p>
                             </details>
-                            <details class="margin-top-medium">
-                                <summary class="well well-sm">7 What was the scientific rationale for Health Canada's decision?</summary>
+                            <details class="margin-top-medium" open>
+                                <summary class="well well-sm" >7 What was the scientific rationale for Health Canada's decision?</summary>
                                 <div>
                                     <details class="margin-top-medium">
                                         <summary class="well well-sm" id="AClinBasisTitle">7.1 Clinical basis for decision</summary>
@@ -413,8 +413,8 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                     $('#Manufacturer').append(json.manufacturer);
                     $('#Manufacturer2').append(json.manufacturer);
                     $('#ControlNum').append(json.control_number);
+                    $('#DateAuthorization').append(formatedDate(json.date_authorization));
                     $('#DateIssued').append(formatedDate(json.date_issued));
-                    $('#DateIssued2').append(formatedDate(json.date_issued));
                     $('#SubTypeNum').append(json.sub_type_number);
                     $('#Summary').append(json.summary);
                     $('#WhyApproved').append(json.why_approved);
@@ -428,7 +428,7 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                     $('#AClinBasis').append(formatedClinBasisDesc(json.a_clin_basis, json.a_clin_basis2, ""));
                     $('#MilestoneTable').append(displayMilestoneList(json.milestone_list));
                     $('#DinList').append(formatedList(json.din_list));
-                    //$('#DinList2').append(formatedDinWithOthers(json.din_list, json.MedIngredient, json.RouteAdmin));
+                    $('#DinList2').append(formatedList(json.din_list));
                     $('#TombstoneList').append(formatedTombstoneList(json.tombstone_list));
                     $('#AssessBasis').append(json.assess_basis);                   
                     $('#MedIngredient').append(json.med_ingredient);

@@ -1,5 +1,5 @@
-﻿//var dhpr = "http://api.hres.ca/dhpr/controller/dhprController.ashx?";
-var dhpr = "./controller/dhprController.ashx?";
+﻿var dhpr = "http://api.hres.ca/dhpr/controller/dhprController.ashx?";
+//var dhpr = "./controller/dhprController.ashx?";
 
 $("summary").addClass("wb-toggle well well-sm");
 $("summary").attr("data-toggle", "{\"persist\": \"session\"}");

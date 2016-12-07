@@ -147,17 +147,21 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                     <h2 id="title" class="panel-title"><span id="DeviceName"></span></h2>
                 </div>
                 <div class="panel-body">
-                    <p>Contact: <a href="http://www.hc-sc.gc.ca/contact/dhp-mps/hpfb-dgpsa/devicelic-instrumentlic-fra.php">Bureau des matériels médicaux</a></p>
+                    <div class="row">
+                        <p class="col-sm-1"><strong>Contact&nbsp;:</strong></p>
+                        <div class="col-sm-11 mrgn-lft-0"><p><a href="http://www.hc-sc.gc.ca/contact/dhp-mps/hpfb-dgpsa/devicelic-instrumentlic-fra.php">Bureau des matériels médicaux</a></p></div>
+                    </div> 
+
                     <p><strong>Ce document est une traduction française du document anglais approuvé.</strong></p>
                     <details class="margin-top-medium">
                         <summary class="well well-sm">Sommaire des motifs de décision (SMD)</summary>
-                        <p>Les sommaires des motifs de décision (SMD) présentent des renseignements sur l'autorisation initiale d'un produit. Le SMD portant sur <span id="DeviceName1"></span> est accessible ci-dessous.</p>
+                        <p>Les sommaires des motifs de décision (SMD) présentent des renseignements sur l'autorisation initiale d'un produit. Le <a href="#DeviceName5">SMD</a> portant sur <span id="DeviceName1"></span> est accessible ci-dessous.</p>
                     </details>
                     <details class="margin-top-medium">
                         <summary class="well well-sm">Activité récente relative aux <span id="DeviceName2"></span> </summary>
                         <p id="RecentActivity"></p>
                     </details>
-                    <details class="margin-top-medium">
+                    <details class="margin-top-medium" id="platDiv">
                         <summary class="well well-sm">Tableau des activités post-homologation (TAPH) portant sur les <span id="DeviceName3"></span></summary>
                         <div class="row">
                             <p class="col-sm-4"><strong>Mise à jour:</strong></p>
@@ -405,6 +409,16 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             { "data": "summ_activity" }
             ]
         }
+
+        $(".wb-tables").on("xhr.dt", function (e, settings, json, xhr) {
+            var count = Object.keys(json.data).length;
+            if (count > 0) {
+                $('#platDiv').show();
+            }
+            else {
+                $('#platDiv').hide();
+            }
+        });
     </script>
 </body>
 </html>
