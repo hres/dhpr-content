@@ -150,18 +150,9 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <h2 class="panel-title">Sommaire des motifs de décision</h2>
                         </div>
                         <div class="panel-body">
-                            <div>
-                                <p>Inscrivez le texte ci-dessous pour faire une recherche selon: </p>
-                                <ul>
-                                    <li>le fabricant</li>
-                                    <li>l’ingrédient médical</li>
-                                    <li>le médicament ou l’instrument médical</li>
-                                    <li>le numéro d'identification du médicament (DIN) ou numéro d'homologation</li>
-                                </ul>
-                            </div>
                             <div class="form-group">
-                                <label for="term" class="control-label">
-                                    <span class="field-name hidden">Recherche</span>                                   
+                                <label for="term" class="control-label">Entrez les termes de recherche
+                                    <span class="field-name hidden">Recherche</span>
                                 </label>
                                 <input name="term" type="text" id="term" list="list-liste" class="full-width" required="required">
                                 <datalist id="list-liste" data-ajax-replace=".././list-liste-eng.txt" class="wb-data-ajax-replace-inited"> </datalist>
@@ -173,26 +164,10 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <div>
                                 <p><a href="sommaire-motif-decision-resultat.html?lang=fr&amp;term=">Tous sommaire des motifs de décision</a></p>
                             </div>
-                            <div>
-                                <p>Les documents sur les sommaires des motifs de décision (SMD) expliquent pourquoi Santé Canada a autorisé la vente de certains médicaments et instruments médicaux au Canada. Les aspects pris en compte sont:</p>
-                                <ul>
-                                    <li>l'innocuité</li>
-                                    <li>la réglementation </li>
-                                    <li>l'efficacité</li>
-                                    <li>la qualité (sur le plan de la chimie et de la fabrication)</li>
-                                </ul>
-                            </div>
 
-                            
                         </div>
                     </div>
 
-                    <div>
-                        <h2>Pour de plus amples renseignements</h2>
-                        <ul>
-                            <li><a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/index-fra.php">Sommaire des motifs de décision </a></li>                            
-                        </ul>
-                    </div>
                 </form>
             </div>
             <div class="row pagedetails">
@@ -305,10 +280,10 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
     <!--<![endif]-->
     <!--[if lt IE 9]>
     <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>
-    <![endif]-->   
+    <![endif]-->
     <script src="./js/dhpr.js"></script>
     <!--[if lt IE 10 | !IE ]><!-->
     <script src="./js/jquery.xdomainrequest.min.js"></script>
-    <!--<![endif]-->   
+    <!--<![endif]-->
 </body>
 </html>

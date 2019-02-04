@@ -144,25 +144,16 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
             <main role="main" property="mainContentOfPage" class="container">
                 <div class="wb-frmvld">
                     <form name="rds" action="summary-safety-review-result.html" method="get" id="rds">
-                        <h1 property="name" id="wb-cont">The Drug and Health Product Register</h1>                        
-                               
+                        <h1 property="name" id="wb-cont">The Drug and Health Product Register</h1>
+
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h2 class="panel-title">Summary Safety Reviews Search</h2>
                                     </div>
                                     <div class="panel-body">
-                                        <div>
-                                            <p>Enter text below to search by: </p>
-                                            <ul>
-                                                <li>product class</li>
-                                                <li>product name</li>
-                                                <li>active ingredient</li>
-                                                <li>potential safety issue (such as kidney or renal failure)</li>
-                                            </ul>
-                                        </div>
                                         <div class="form-group">
-                                            <label for="term" class="control-label">
-                                                <span class="field-name hidden">Search field</span>                                                
+                                            <label for="term" class="control-label">Enter search term(s)
+                                                <span class="field-name hidden">Search field</span>
                                             </label>
                                             <input name="term" type="text" id="term" list="list-liste"  class="full-width" required="required">
                                             <datalist id="list-liste" data-ajax-replace=".././list-liste-eng.txt" class="wb-data-ajax-replace-inited"> </datalist>
@@ -174,27 +165,10 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
                                         <div>
                                             <p><a href="summary-safety-review-result.html?lang=en&amp;term=">All Summary Safety Reviews</a></p>
                                         </div>
-                                        <div>
-                                            <p>A Summary Safety Review (SSR) follows after a potential safety issue with a drug or health product has been identified. </p>
-                                            <p>These summaries accompany other safety related information to help you make informed decisions about your medication choices. </p>
-                                            <p>Each summary outlines: </p>
-                                            <ul>
-                                                <li>what was assessed</li>
-                                                <li>what was found</li>
-                                                <li>what action was taken, if any</li>                                              
-                                            </ul>
-                                            <p>It’s important to know that a drug may not have a Summary Safety Review written about it. This doesn’t mean that there are no safety concerns or risks with using it, as all health products carry risks. Safety risks for a health product can be read about in its prescribing information.</p>
-                                        </div>    
-                                       
+
                                     </div>
                               </div>
-                        
-                        <div>
-                            <h2>For more information</h2>
-                            <ul>
-                                <li><a href="http://www.hc-sc.gc.ca/dhp-mps/medeff/reviews-examens/index-eng.php">Summary Safety Reviews</a></li>   
-                            </ul>
-                        </div>    
+
                     </form>
                 </div>
                 <div class="row pagedetails">
@@ -301,7 +275,7 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
             </div>
         </div>
     </footer>
-    
+
     <!--[if gte IE 9 | !IE ]><!-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="./distro/4.0.20/wet-boew/js/wet-boew.min.js"></script>
@@ -309,12 +283,12 @@ var autoCompletionOptions = { 'validLanguages' : 'en', };
     <!--[if lt IE 9]>
     <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>
     <![endif]-->
-   
+
 
     <script src="./js/dhpr.js"></script>
     <!--[if lt IE 10 | !IE ]><!-->
     <script src="./js/jquery.xdomainrequest.min.js"></script>
-    <!--<![endif]-->  
-      
+    <!--<![endif]-->
+
 </body>
 </html>

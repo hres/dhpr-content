@@ -150,18 +150,9 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <h2 class="panel-title">Résumé de l'examen de l'innocuité</h2>
                         </div>
                         <div class="panel-body">
-                            <div>
-                                <p>Inscrivez le texte ci-dessous pour faire une recherche selon:</p>
-                                <ul>
-                                    <li>la classe de produit</li>
-                                    <li>le nom de produit </li>
-                                    <li>l’ingrédient actif</li>
-                                    <li>le problème d’innocuité potentiel (insuffisance rénale)</li>
-                                </ul>
-                            </div>
                             <div class="form-group">
-                                <label for="term" class="control-label">
-                                    <span class="field-name hidden">Recherche</span>                                   
+                                <label for="term" class="control-label">Entrez les termes de recherche
+                                    <span class="field-name hidden">Recherche</span>
                                 </label>
                                 <input name="term" type="text" id="term" list="list-liste" class="full-width" required="required">
                                 <datalist id="list-liste" data-ajax-replace=".././list-liste-eng.txt" class="wb-data-ajax-replace-inited"> </datalist>
@@ -174,27 +165,9 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <div>
                                 <p><a href="resume-examen-innocuite-resultat.html?lang=fr&amp;term=">Tous résumés de l'examen de l'innocuité</a></p>
                             </div>
-                            <div>
-                                <p>Lorsqu’un problème d’innocuité potentiel est décelé pour un médicament ou un produit de santé, il s’ensuit un résumé de l’examen de l’innocuité. </p>
-                                <p>Ces résumés s’ajoutent à d'autres renseignements reliés à l'innocuité afin d'aider à prendre des décisions éclairées sur les choix de médicaments. </p>
-                                <p>Chaque résumé décrit:</p>
-                                <ul>
-                                    <li>ce qui a été évalué</li>
-                                    <li>ce qui a été trouvé </li>
-                                    <li>et quelles mesures ont été prises, le cas échéant</li>
-                                </ul>
-                                <p>Il est important de savoir que les médicaments ne font pas tous l’objet d’un résumé de l’examen de l’innocuité, ce qui ne signifie pas que l’usage de ces médicaments ne présente aucun risque pour la sécurité. Les risques pour la santé associés à un produit de santé sont indiqués dans les renseignements d’ordonnance.</p>
-                            </div>
-                            
                         </div>
                     </div>
 
-                    <div>
-                        <h2>Pour de plus amples renseignements</h2>
-                        <ul>
-                            <li><a href="http://www.hc-sc.gc.ca/dhp-mps/medeff/reviews-examens/index-fra.php">Résumé des examens de l’innocuité</a></li>                         
-                        </ul>
-                    </div>
                 </form>
             </div>
             <div class="row pagedetails">
@@ -307,10 +280,10 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
     <!--<![endif]-->
     <!--[if lt IE 9]>
     <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>
-    <![endif]-->   
+    <![endif]-->
     <script src="./js/dhpr.js"></script>
     <!--[if lt IE 10 | !IE ]><!-->
     <script src="./js/jquery.xdomainrequest.min.js"></script>
-    <!--<![endif]-->   
+    <!--<![endif]-->
 </body>
 </html>

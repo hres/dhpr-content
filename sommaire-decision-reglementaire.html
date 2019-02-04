@@ -149,18 +149,9 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <h2 class="panel-title">Sommaires des décisions réglementaires </h2>
                         </div>
                         <div class="panel-body">
-                            <div>
-                                <p>Inscrivez le texte ci-dessous pour faire une recherche selon:  </p>
-                                <ul>
-                                    <li>le fabricant</li>
-                                    <li>l’ingrédient médical</li>
-                                    <li>le médicament ou l’instrument médical</li>
-                                    <li>le numéro d'identification du médicament (DIN) ou numéro d'homologation</li>
-                                </ul>
-                            </div>
                             <div class="form-group">
-                                <label for="term" class="control-label">
-                                    <span class="field-name hidden">Recherche</span>                                    
+                                <label for="term" class="control-label">Entrez les termes de recherche
+                                    <span class="field-name hidden">Recherche</span>
                                 </label>
                                 <input name="term" type="text" id="term" list="list-liste" class="full-width" required="required">
                                 <datalist id="list-liste" data-ajax-replace=".././list-liste-eng.txt" class="wb-data-ajax-replace-inited"> </datalist>
@@ -172,19 +163,8 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
                             <div>
                                 <p><a href="sommaire-decision-reglementaire-resultat.html?lang=fr&amp;term=">Tous sommaires des décisions réglementaires</a></p>
                             </div>
-                            <div>
-                                <p>Les sommaires des décisions réglementaires (SDR) expliquent les décisions relatives à certains produits de santé pour lesquels une autorisation de mise en marché est demandée, ce qui comprend les instruments médicaux et les médicaments d’ordonnance.</p>
-                                <p>Les sommaires indiquent notamment l’objet de la demande et la justification de la décision.</p>
-                                <p>Ils comprennent aussi des sommaires des présentations ayant été acceptées aux fins d’examen, puis annulées par l’entreprise.  </p>
-                            </div>
-                           
+
                         </div>
-                    </div>
-                    <div>
-                        <h2>Pour de plus amples renseignements</h2>
-                        <ul>
-                            <li><a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/rds-sdr/index-fra.php">Sommaires des décisions réglementaires </a></li>
-                        </ul>
                     </div>
                 </form>
             </div>
@@ -298,10 +278,10 @@ var autoCompletionOptions = { 'validLanguages' : 'fr', };
     <!--<![endif]-->
     <!--[if lt IE 9]>
     <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>
-    <![endif]-->   
+    <![endif]-->
     <script src="./js/dhpr.js"></script>
     <!--[if lt IE 10 | !IE ]><!-->
     <script src="./js/jquery.xdomainrequest.min.js"></script>
-    <!--<![endif]-->   
+    <!--<![endif]-->
 </body>
 </html>
